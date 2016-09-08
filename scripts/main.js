@@ -25,10 +25,23 @@ require(['views/index', 'data/node', 'data/edge',
             url: edgeData
         });
 
-        Nodes.fetch();
-        Edges.fetch();
+        var renderIndex = function() {
+            var index = new Index(Nodes, Edges);
+            index.render();
+            $('body').append(index.$el);
+        }
 
-        var index = new Index(Nodes, Edges);
-        index.render();
-        $('body').append(index.$el);
+        Nodes.fetch({
+            success: function() {
+                Edges.fetch({
+                    success: function() {
+                        renderIndex();
+                    }
+                });
+            }
+        });
+
+
+
+
     });

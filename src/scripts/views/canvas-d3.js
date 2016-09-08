@@ -1,13 +1,22 @@
-define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) {
-    var Canvas = Backbone.View.extend({
-        render: function() {
-            var x = d3.scaleLinear()
-                .range([0, 90])
-                .domain([0, 9]);
+define(['backbone', 'underscore', 'jquery', 'd3', 
+	'text!templates/canvas.html'], function(backbone, _, $, d3, canvasTemplate) {
 
-            console.log(x(1));
-        }
-    });
+	var Canvas = Backbone.View.extend({
 
-    return Canvas;
+		initialize: function(data) {
+			_.extend(this, data);
+		},
+    	id: 'canvas',
+    	class: 'container main-canvas',
+		template: _.template(canvasTemplate),
+
+		render: function() {
+			this.$el.append(this.template(this));
+			//var canvas = d3.select(this.el).append('svg').attr('width', '100%').attr('height', '100%');
+		}
+	});
+
+	return Canvas;
+
 });
+ 

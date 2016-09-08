@@ -1,0 +1,31 @@
+{
+  "name": "ajie.com",
+  "version": "1.0.0",
+  "description": "personal-website",
+  "main": "Gruntfile.js",
+  "devDependencies": {
+    "express": "^4.14.0",
+    "grunt": "^1.0.1",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-concurrent": "^2.3.1",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-nodemon": "^0.4.2",
+    "nodemon": "^1.10.2",
+    "path": "^0.12.7"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnkaiJie/ajie.com.git"
+  },
+  "author": "Ankai Jie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnkaiJie/ajie.com/issues"
+  },
+  "homepage": "https://github.com/AnkaiJie/ajie.com#readme"
+}

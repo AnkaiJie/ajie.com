@@ -1,3 +1,7 @@
 src/scripts/bower_lib
 
 dist/
+
+node_modules/
+
+.sass-cache/

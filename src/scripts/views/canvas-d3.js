@@ -4,13 +4,13 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
 
         initialize: function(data) {
             _.extend(this, data);
-            var rootNode = this.nodes.find(function(n) {
+            var rootNode = _.clone(this.nodes.find(function(n) {
                 return n.attributes.root && n.attributes.root === 1;
-            });
-            var width = $(window).width();
-            var height = $(window).height();
+            }).attributes);
+            this.width = $(window).width();
+            this.height = $(window).height();
 
-            this.visNodes.push(_.extend(rootNode, { x: width / 2, y: height * 0.4 }));
+            this.visNodes.push(rootNode);
             this.initializeForce();
         },
 
@@ -32,7 +32,8 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
                 this.drawEdges();
                 this.simulation
                     .nodes(this.visNodes)
-                    .force('link', d3.forceLink(this.visEdges));
+                    .force('link', d3.forceLink());
+
                 this.simulation.force('link')
                     .links(this.visEdges);
                 this.simulation.restart();
@@ -53,28 +54,54 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
 
             function dragended(d) {
                 if (!d3.event.active) this.simulation.alphaTarget(0);
-                d.fx = null;
-                d.fy = null;
             }
 
             this.drag = d3.drag()
                 .on("start", _.bind(dragstarted, this))
                 .on("drag", dragged)
-                .on("end", _.bind(dragended,this));
+                .on("end", _.bind(dragended, this));
+
             this.simulation
+                .force('center', d3.forceCenter(this.width / 2, this.height * 0.4))
                 .on('tick', _.bind(this.ticked, this));
+
         },
 
+        excolNode: function(d) {
+            if (d.expanded) {
+
+            } else {
+                d.expanded = true;
+                var items = this.nodes.excol(d, 'expand');
+                var nodeAttrs = _.map(items.newNodes, function(n) {
+                    return n.attributes;
+                });
+
+                var edgeAttr = _.map(items.newEdges, function(e) {
+                    return e.attributes;
+                });
+
+                this.visNodes = _.union(this.visNodes, nodeAttrs);
+                this.visEdges = _.union(this.visEdges, edgeAttr);
+                console.log(this.visEdges);
+                console.log(this.visNodes);
+
+                this.refresh();
+            }
+        },
 
         drawNodes: function() {
 
+            d3.selectAll('.nodes').remove();
+
             this.node = this.svg.append('g')
+                .attr('class', 'nodes')
                 .selectAll('circle')
                 .data(this.visNodes)
                 .enter().append('circle')
                 .attr('r', 30)
+                .on('dblclick', _.bind(this.excolNode, this))
                 .call(this.drag);
-
         },
 
         drawEdges: function() {

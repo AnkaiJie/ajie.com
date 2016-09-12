@@ -40,11 +40,11 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
         },
 
         setPhysics: function() {
-            var dragstarted = function(d) {
-                d3.event.sourceEvent.stopPropagation();
+            function dragstarted(d) {
+                if (!d3.event.active) this.simulation.alphaTarget(0.3).restart();
                 d.fx = d.x;
                 d.fy = d.y;
-            };
+            }
 
             function dragged(d) {
                 d.fx = d3.event.x;
@@ -52,14 +52,15 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
             }
 
             function dragended(d) {
+                if (!d3.event.active) this.simulation.alphaTarget(0);
                 d.fx = null;
                 d.fy = null;
             }
 
             this.drag = d3.drag()
-                .on("start", dragstarted)
+                .on("start", _.bind(dragstarted, this))
                 .on("drag", dragged)
-                .on("end", dragended);
+                .on("end", _.bind(dragended,this));
             this.simulation
                 .on('tick', _.bind(this.ticked, this));
         },

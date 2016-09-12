@@ -17,13 +17,15 @@ require(['views/index', 'data/node', 'data/edge',
         var nodeData = 'scripts/data/nodes.json';
         var edgeData = 'scripts/data/edges.json';
 
-        var Nodes = new AllNodes({
-            url: nodeData
-        });
-
         var Edges = new AllEdges({
             url: edgeData
         });
+
+        var Nodes = new AllNodes({
+            url: nodeData,
+            edges: Edges
+        });
+
 
         var renderIndex = function() {
             var index = new Index(Nodes, Edges);

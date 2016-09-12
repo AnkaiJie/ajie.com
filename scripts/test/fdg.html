@@ -1,22 +1,4 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="scripts/css/main.css">
-    <link rel="stylesheet" type="text/css" href="scripts/bower_lib/bootstrap-css/css/bootstrap.min.css">
-    
-    <title></title>
-</head>
-
-<body>
-    <script data-main="scripts/main.js" src="scripts/bower_lib/requirejs/require.js"></script>
-</body>
-
-</html>
-
-
-<!--  <!DOCTYPE html>
 <meta charset="utf-8">
 <style>
 
@@ -46,7 +28,7 @@ var simulation = d3.forceSimulation()
     .force("charge", d3.forceManyBody())
     .force("center", d3.forceCenter(width / 2, height / 2));
 
-d3.json("scripts/test/miserables.json", function(error, graph) {
+d3.json("miserables.json", function(error, graph) {
   if (error) throw error;
 
   var link = svg.append("g")
@@ -79,7 +61,6 @@ d3.json("scripts/test/miserables.json", function(error, graph) {
       .links(graph.links);
 
   function ticked() {
-  	console.log('tick');
     link
         .attr("x1", function(d) { return d.source.x; })
         .attr("y1", function(d) { return d.source.y; })
@@ -104,8 +85,9 @@ function dragged(d) {
 }
 
 function dragended(d) {
+  if (!d3.event.active) simulation.alphaTarget(0);
   d.fx = null;
   d.fy = null;
 }
 
-</script> -->
+</script>

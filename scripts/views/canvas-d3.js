@@ -9,7 +9,7 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
             }).attributes);
             this.width = $(window).width();
             this.height = $(window).height();
-
+            rootNode = _.extend(rootNode, { /* x: this.width / 2, y: this.height * 0.4 */ });
             this.visNodes.push(rootNode);
             this.initializeForce();
         },
@@ -35,7 +35,8 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
                     .force('link', d3.forceLink());
 
                 this.simulation.force('link')
-                    .links(this.visEdges);
+                    .links(this.visEdges)
+                    .distance(150);
                 this.simulation.restart();
             }
         },
@@ -54,6 +55,10 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
 
             function dragended(d) {
                 if (!d3.event.active) this.simulation.alphaTarget(0);
+                if (!d.root) {
+                    d.fx = null;
+                    d.fy = null;
+                }
             }
 
             this.drag = d3.drag()
@@ -62,7 +67,7 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
                 .on("end", _.bind(dragended, this));
 
             this.simulation
-                .force('center', d3.forceCenter(this.width / 2, this.height * 0.4))
+                .force('charge', d3.forceManyBody().strength(-1000))
                 .on('tick', _.bind(this.ticked, this));
 
         },
@@ -73,20 +78,13 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
             } else {
                 d.expanded = true;
                 var items = this.nodes.excol(d, 'expand');
-                var nodeAttrs = _.map(items.newNodes, function(n) {
-                    return n.attributes;
-                });
 
-                var edgeAttr = _.map(items.newEdges, function(e) {
-                    return e.attributes;
-                });
-
-                this.visNodes = _.union(this.visNodes, nodeAttrs);
-                this.visEdges = _.union(this.visEdges, edgeAttr);
-                console.log(this.visEdges);
+                this.visNodes = this.visNodes.concat(items.newNodes);
+                this.visEdges = this.visEdges.concat(items.newEdges);
                 console.log(this.visNodes);
-
+                console.log(this.visEdges);
                 this.refresh();
+
             }
         },
 
@@ -100,12 +98,18 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
                 .data(this.visNodes)
                 .enter().append('circle')
                 .attr('r', 30)
+                .attr('transform', 'translate(' + this.width / 2 + ', ' + this.height * 0.4 + ')')
                 .on('dblclick', _.bind(this.excolNode, this))
                 .call(this.drag);
         },
 
         drawEdges: function() {
+
+            d3.selectAll('.edges').remove();
+
             this.edge = this.svg.append('g')
+                .attr('class', 'edges')
+                .attr('transform', 'translate(' + this.width / 2 + ', ' + this.height * 0.4 + ')')
                 .selectAll('line')
                 .data(this.visEdges)
                 .enter()
@@ -139,7 +143,8 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
         },
 
         render: function() {
-            this.svg = d3.select(this.$el[0]).append('svg').attr('width', '100%').attr('height', '100%');
+            this.svg = d3.select(this.$el[0]).append('svg')
+                .attr('width', '100%').attr('height', '100%');
         }
 
     });

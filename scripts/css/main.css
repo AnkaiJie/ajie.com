@@ -1,5 +1,7 @@
 body,
-html, #mainPage, #canvas {
+html,
+#mainPage,
+#canvas {
   height: 100%;
   width: 100%; }
 

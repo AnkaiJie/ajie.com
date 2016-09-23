@@ -8,20 +8,41 @@ define(['backbone', 'underscore', 'data/node'], function(Backbone, _, Node) {
 			_.extend(this, config);
 		},
 
-		excol: function(node, expand) {
-			if (expand) {
-				var exp = this.expandNode(node.id);
-				return exp;
-			} else {
-				
-			}
+
+		recurseCollapse: function(nodeId, visibleNodes, accNodes, accEdges) {
+			var targEdges = this.edges.where({source: nodeId});
+			var edgeRecurse = function(edge){
+				var attrs = edge.attributes;
+				var targId = attrs.target;
+				if (visibleNodes.indexOf(targId)!==-1){
+					accEdges.push(attrs.id);
+					accNodes.push(targId);
+
+					this.recurseCollapse(targId, visibleNodes, accNodes, accEdges);
+				}
+			};
+			_.each(targEdges, _.bind(edgeRecurse, this));
+		},
+
+		getNodesCollapsed: function(node, nodeList) {
+			var id = node.id;
+			var accNodes = [];
+			var accEdges = [];
+			var nodeIds = _.map(nodeList, function(n){
+				return n.id;
+			});
+			this.recurseCollapse(id, nodeIds, accNodes, accEdges);
+			return {
+				nodesToRemove: accNodes,
+				edgesToRemove: accEdges
+			};
 
 		},
 
-		expandNode: function(id) {
+		getNodeExpansion: function(nodeAttr) {
+			var id = nodeAttr.id;
 			var node = this.get(id);
 			
-			node.set({expanded: true});
 			var edgesToAdd = this.edges.where({source: id});
 
 			var nodesToAdd = this.filter(function(n){
@@ -35,11 +56,11 @@ define(['backbone', 'underscore', 'data/node'], function(Backbone, _, Node) {
 			});
 
 			nodesToAdd = _.map(nodesToAdd, function(n){
-				return n.attributes;
+				return _.clone(n.attributes);
 			});
 
 			edgesToAdd = _.map(edgesToAdd, function(e){
-				return e.attributes;
+				return _.clone(e.attributes);
 			});
 
 			return {

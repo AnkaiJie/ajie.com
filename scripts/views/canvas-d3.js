@@ -74,10 +74,21 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
 
         excolNode: function(d) {
             if (d.expanded) {
-
+                d.expanded = false;
+                var removes = this.nodes.getNodesCollapsed(d, this.visNodes);
+                this.visNodes = _.filter(this.visNodes, function(n){
+                    return removes.nodesToRemove.indexOf(n.id) === -1;
+                });
+                this.visEdges = _.filter(this.visEdges, function(e){
+                    return removes.edgesToRemove.indexOf(e.id) === -1;
+                });
+                console.log(this.visNodes);
+                console.log(this.visEdges);
+                this.refresh();
+                
             } else {
                 d.expanded = true;
-                var items = this.nodes.excol(d, 'expand');
+                var items = this.nodes.getNodeExpansion(d);
 
                 this.visNodes = this.visNodes.concat(items.newNodes);
                 this.visEdges = this.visEdges.concat(items.newEdges);
@@ -89,10 +100,9 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
         },
 
         drawNodes: function() {
-
             d3.selectAll('.nodes').remove();
 
-            this.node = this.svg.append('g')
+            this.d3node = this.svg.append('g')
                 .attr('class', 'nodes')
                 .selectAll('circle')
                 .data(this.visNodes)
@@ -107,7 +117,7 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
 
             d3.selectAll('.edges').remove();
 
-            this.edge = this.svg.append('g')
+            this.d3edge = this.svg.append('g')
                 .attr('class', 'edges')
                 .attr('transform', 'translate(' + this.width / 2 + ', ' + this.height * 0.4 + ')')
                 .selectAll('line')
@@ -119,7 +129,7 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
 
         ticked: function() {
             console.log('tick');
-            this.edge
+            this.d3edge
                 .attr("x1", function(d) {
                     return d.source.x;
                 })
@@ -133,7 +143,7 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
                     return d.target.y;
                 });
 
-            this.node
+            this.d3node
                 .attr("cx", function(d) {
                     return d.x;
                 })

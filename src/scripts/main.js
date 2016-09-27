@@ -10,9 +10,9 @@ require.config({
 
 
 require(['views/index', 'data/node', 'data/edge',
-        'data/edges', 'data/nodes', 'jquery'
+        'data/edges', 'data/nodes', 'jquery', 'underscore'
     ],
-    function(Index, Node, Edge, AllEdges, AllNodes, $) {
+    function(Index, Node, Edge, AllEdges, AllNodes, $, _) {
 
         var nodeData = 'scripts/data/nodes.json';
         var edgeData = 'scripts/data/edges.json';
@@ -26,9 +26,10 @@ require(['views/index', 'data/node', 'data/edge',
             edges: Edges
         });
 
+        var dispatch = _.clone(Backbone.Events);
 
         var renderIndex = function() {
-            var index = new Index(Nodes, Edges);
+            var index = new Index(Nodes, Edges, dispatch);
             index.render();
             $('body').append(index.$el);
         }

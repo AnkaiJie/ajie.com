@@ -102,13 +102,19 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
         drawNodes: function() {
             d3.selectAll('.nodes').remove();
 
+            var self = this;
+
             this.d3node = this.svg.selectAll('g.node')
                 .data(this.visNodes)
                 .enter().append('g')
                 .attr('class', 'nodes')
                 .attr('transform', 'translate(' + this.width / 2 + ', ' + this.height * 0.4 + ')')
                 .call(this.drag)
-                .on('dblclick', _.bind(this.excolNode, this));
+                .on('dblclick', _.bind(this.excolNode, this))
+                .on('contextmenu', function(d) {
+                    self.dispatch.trigger('openInfo', d);
+                    d3.event.preventDefault();
+                });
 
             var circles = this.d3node.append('circle')
                 .attr('r', 50)
@@ -171,7 +177,7 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
                 .attr("cy", function(d) {
                     return d.y;
                 });
-                
+
             this.d3node.selectAll('image')
                 .attr("x", function(d) {
                     return d.x - 35;

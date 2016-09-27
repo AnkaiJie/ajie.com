@@ -1,4 +1,4 @@
-define(['backbone', 'views/canvas-d3', 'jquery'], function(backbone, Canvas, $) {
+define(['backbone', 'views/canvas-d3', 'jquery', 'views/node-view'], function(backbone, Canvas, $, NodeView) {
 
     var Index = Backbone.View.extend({
         id: 'mainPage',
@@ -8,7 +8,6 @@ define(['backbone', 'views/canvas-d3', 'jquery'], function(backbone, Canvas, $) 
         },
 
         render: function() {
-
         }
 
     });

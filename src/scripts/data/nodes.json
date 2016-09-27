@@ -1,6 +1,6 @@
 [
-    { "id": 0, "name": "Ankai", "root": 1, "picture": 0 },
-    { "id": 1, "name": "AboutMe", "root": 0, "picture": 0 },
-    { "id": 2, "name": "Projects", "root": 0, "picture": 0 },
-    { "id": 3, "name": "GSC", "root": 0, "picture": 0 }
+    { "id": 0, "name": "Ankai", "root": 1, "picture": "scripts/img/cat.jpg" },
+    { "id": 1, "name": "AboutMe", "root": 0, "picture": "scripts/img/cat.jpg" },
+    { "id": 2, "name": "Projects", "root": 0, "picture": "scripts/img/cat.jpg" },
+    { "id": 3, "name": "GSC", "root": 0, "picture": "scripts/img/cat.jpg" }
 ]

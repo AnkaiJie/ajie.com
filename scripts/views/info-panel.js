@@ -28,9 +28,9 @@ define(['backbone', 'underscore', 'jquery',
             var $d = $('div .datastuff');
             $d.empty();
             var info = node.info;
-            $d.append('<img src="' + info.dpic + '" style="width:304px; height:228px;">')
-            $d.append('<h1>' + info.title + '</h1>')
-            $d.append('<h3>' + info.desc + '</h3>')
+            $d.append('<img src="' + info.dpic + '" style="width:304px; height:228px;">');
+            $d.append('<h1>' + info.title + '</h1>');
+            $d.append('<h3>' + info.desc + '</h3>');
         },
 
         test: function() {

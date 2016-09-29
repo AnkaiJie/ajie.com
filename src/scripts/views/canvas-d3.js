@@ -17,6 +17,13 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
         id: 'canvas',
         visNodes: [],
         visEdges: [],
+        // events: {
+        //     'click svg': 'clickCanvas'
+        // },
+
+        // clickCanvas: function(e) {
+        //     this.dispatch.trigger('toggleInfo');
+        // },
 
         initializeForce: function() {
             this.simulation = d3.forceSimulation();
@@ -102,7 +109,28 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
         drawNodes: function() {
             d3.selectAll('.nodes').remove();
 
-            var self = this;
+            var excol = function(d) {
+                this.excolNode(d);
+                d3.event.preventDefault();
+            };
+
+            var trigPanel = function(d){
+                if (d.selected){
+                    d.selected = false;
+                } else {
+                    d.selected = true;
+                }
+                this.dispatch.trigger('toggleInfo', d);
+                d3.event.stopPropagation();
+            };
+
+            var clickCanvas = function(e){
+                var self = this;
+                _.map(self.visNodes, function(node, key){
+                    self.visNodes[key].selected = false;
+                });
+                this.dispatch.trigger('toggleInfo');
+            };
 
             this.d3node = this.svg.selectAll('g.node')
                 .data(this.visNodes)
@@ -110,11 +138,10 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
                 .attr('class', 'nodes')
                 .attr('transform', 'translate(' + this.width / 2 + ', ' + this.height * 0.4 + ')')
                 .call(this.drag)
-                .on('dblclick', _.bind(this.excolNode, this))
-                .on('contextmenu', function(d) {
-                    self.dispatch.trigger('openInfo', d);
-                    d3.event.preventDefault();
-                });
+                .on('click', _.bind(trigPanel, this))
+                .on('contextmenu', _.bind(excol, this));
+
+            this.svg.on('click', _.bind(clickCanvas, this));
 
             var circles = this.d3node.append('circle')
                 .attr('r', 50)

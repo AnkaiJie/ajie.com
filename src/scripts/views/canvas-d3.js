@@ -43,7 +43,7 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
 
                 this.simulation.force('link')
                     .links(this.visEdges)
-                    .distance(150);
+                    .distance(300);
                 this.simulation.restart();
             }
         },
@@ -144,7 +144,7 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
             this.svg.on('click', _.bind(clickCanvas, this));
 
             var circles = this.d3node.append('circle')
-                .attr('r', 50)
+                .attr('r', 65)
                 .attr('fill', '#eee');
 
             // this.d3node = this.svg.append('g')
@@ -161,8 +161,8 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
                 .attr('xlink:href', function(d) {
                     return d.picture;
                 })
-                .attr("height", 75)
-                .attr("width", 75);
+                .attr("height", 95)
+                .attr("width", 95);
 
 
         },
@@ -207,10 +207,10 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
 
             this.d3node.selectAll('image')
                 .attr("x", function(d) {
-                    return d.x - 35;
+                    return d.x - 45;
                 })
                 .attr("y", function(d) {
-                    return d.y - 35;
+                    return d.y - 45;
                 });
         },
 

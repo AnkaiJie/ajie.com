@@ -1,5 +1,15 @@
-[
-    { "id": 0, "name": "Ankai", "root": 1, "picture": "scripts/img/cat.jpg" },
+[{
+        "id": 0,
+        "name": "Ankai",
+        "root": 1,
+        "picture": "scripts/img/cat.jpg",
+        "info": {
+            "title": "Ankai Jie",
+            "dpic": "scripts/img/cat.jpg",
+            "desc": "Hi! My name is Ankai Jie. I am a second year student at the University of Waterloo studying computer science."
+        }
+    },
+
     { "id": 1, "name": "AboutMe", "root": 0, "picture": "scripts/img/cat.jpg" },
     { "id": 2, "name": "Projects", "root": 0, "picture": "scripts/img/cat.jpg" },
     { "id": 3, "name": "GSC", "root": 0, "picture": "scripts/img/cat.jpg" }

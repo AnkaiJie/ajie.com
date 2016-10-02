@@ -4,6 +4,7 @@ html,
     height: 100%;
     width: 100%;
     overflow: hidden;
+    background-color: #e5dee1;
 }
 
 #canvas {
@@ -13,20 +14,51 @@ html,
 svg {
     .nodes {}
     .edges {}
+    .node-label {
+        color: #ffffff;
+        font-family: 'Raleway', sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        text-align: center;
+        text-transform: uppercase;
+    }
 }
 
 .info-section {
     height: 100%;
-    width: 0px; 
-    position: fixed; 
+    width: 0px;
+    position: fixed;
     right: 0px;
-    top:0px;
-    z-index: 1; 
-    background-color: white; 
-    transition: 0.5s; 
-    box-shadow: 10px 10px 5px black;
-    .datastuff{
-        padding-top: 20px;
+    top: 0px;
+    z-index: 1;
+    background-color: white;
+    transition: 0.5s;
+    box-shadow: 0px 0 5px 2px #888888;
+    .datastuff {
+        padding-top: 40px;
+        h1 {
+            padding-top: 10px;
+            color: #111;
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 72px;
+            font-weight: bold;
+            letter-spacing: -1px;
+            line-height: 1;
+            text-align: center;
+        }
+        .main-desc-body {
+            h3 {
+                color: #333333;
+                font-family: 'Helvetica', sans-serif;
+            }
+            position: absolute;
+            margin: 0px 25px 0px 10px;
+            .info-tags {
+                padding-top: 25px;
+                .tag-body {
+                    padding-bottom: 2px;
+                }
+            }
+        }
     }
-
 }

@@ -19,8 +19,21 @@ svg {
         font-family: 'Raleway', sans-serif;
         font-size: 18px;
         font-weight: 700;
-        text-align: center;
         text-transform: uppercase;
+    }
+}
+
+.instruction-box {
+    z-index: 1;
+    position: absolute;
+    top:0;
+    left:0;
+    transform: translateY(50px);
+    h4 {
+        color: #333333;
+        font-family: 'Bitter', sans-serif;
+        font-size: 18px;
+        font-weight: bold;
     }
 }
 
@@ -57,6 +70,12 @@ svg {
                 padding-top: 25px;
                 .tag-body {
                     padding-bottom: 2px;
+                }
+            }
+            .ext-links {
+                text-align: center;
+                a {
+                    display: inline-block;
                 }
             }
         }

@@ -24,6 +24,9 @@
             "tags" : {
                 "Awards": ["Hack the North 2016 Finalist", "Microsoft Azure Best Usage"],
                 "Technologies Used": ["Python", "SQL Server", "Microsoft Azure", "NodeJS"]
+            },
+            "links": {
+                "github": "https://github.com/AnkaiJie/rapGen"
             }
         }
     },

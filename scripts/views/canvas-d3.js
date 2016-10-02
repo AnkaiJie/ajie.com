@@ -121,6 +121,7 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
                     d.selected = true;
                 }
                 this.dispatch.trigger('toggleInfo', d);
+                this.dispatch.trigger('firstClick');
                 d3.event.stopPropagation();
             };
 
@@ -129,6 +130,7 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
                 _.map(self.visNodes, function(node, key) {
                     self.visNodes[key].selected = false;
                 });
+                this.dispatch.trigger('firstClick');
                 this.dispatch.trigger('toggleInfo');
             };
 
@@ -147,15 +149,6 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
                 .attr('r', 65)
                 .attr('fill', '#eee');
 
-            // this.d3node = this.svg.append('g')
-            //     .selectAll('circle')
-            //     .data(this.visNodes)
-            //     .enter().append('circle')
-            //     .attr('r', 30)
-            //     .attr('fill', '#eee')
-            //     .attr('transform', 'translate(' + this.width / 2 + ', ' + this.height * 0.4 + ')')
-            //     .on('dblclick', _.bind(this.excolNode, this))
-            //     .call(this.drag);
 
             var images = this.d3node.append('g:image')
                 .attr('xlink:href', function(d) {

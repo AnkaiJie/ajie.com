@@ -14,8 +14,19 @@ svg .node-label {
   font-family: 'Raleway', sans-serif;
   font-size: 18px;
   font-weight: 700;
-  text-align: center;
   text-transform: uppercase; }
+
+.instruction-box {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(50px); }
+  .instruction-box h4 {
+    color: #333333;
+    font-family: 'Bitter', sans-serif;
+    font-size: 18px;
+    font-weight: bold; }
 
 .info-section {
   height: 100%;
@@ -48,5 +59,9 @@ svg .node-label {
         padding-top: 25px; }
         .info-section .datastuff .main-desc-body .info-tags .tag-body {
           padding-bottom: 2px; }
+      .info-section .datastuff .main-desc-body .ext-links {
+        text-align: center; }
+        .info-section .datastuff .main-desc-body .ext-links a {
+          display: inline-block; }
 
 /*# sourceMappingURL=main.css.map */

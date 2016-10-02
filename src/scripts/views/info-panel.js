@@ -35,10 +35,20 @@ define(['backbone', 'underscore', 'jquery',
             var desc_body = '<div class="main-desc-body">';
             desc_body += '<h3>' + info.desc + '</h3>';
 
-            if (info.tags){
+            if (info.tags) {
                 desc_body += '<div class="info-tags">';
                 for (var attr in info.tags) {
-                    desc_body+='<div class="tag-body"> <span class="label label-primary">' + attr + '</span>: ' + info.tags[attr] + '</div>'
+                    desc_body += '<div class="tag-body"> <span class="label label-primary">' + attr + '</span>: ' + info.tags[attr] + '</div>';
+                }
+                desc_body += '</div>';
+            }
+
+            if (info.links) {
+                desc_body += '<div class="ext-links">';
+                for (var src in info.links) {
+                    if (src == 'github') {
+                        desc_body += '<a class="btn btn-lg btn-social-icon btn-github" href ="' + info.links[src] + '" target="_blank"> <span class="fa fa-github"> </span> </a>';
+                    }
                 }
                 desc_body += '</div>';
             }

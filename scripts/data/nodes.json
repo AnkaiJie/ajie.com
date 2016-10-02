@@ -2,15 +2,30 @@
         "id": 0,
         "name": "Ankai",
         "root": 1,
-        "picture": "scripts/img/cat.jpg",
+        "picture": "scripts/img/placeholder.png",
         "info": {
             "title": "Ankai Jie",
             "dpic": "scripts/img/cat.jpg",
-            "desc": "Hi! My name is Ankai Jie. I am a second year student at the University of Waterloo studying computer science."
+            "desc": "Hello! My name is Ankai Jie. I am a second year student at the University of Waterloo studying computer science."
         }
     },
 
-    { "id": 1, "name": "AboutMe", "root": 0, "picture": "scripts/img/cat.jpg" },
-    { "id": 2, "name": "Projects", "root": 0, "picture": "scripts/img/cat.jpg" },
-    { "id": 3, "name": "GSC", "root": 0, "picture": "scripts/img/cat.jpg" }
+    { "id": 1, "name": "Projects", "root": 0, "picture": "scripts/img/placeholder.png" },
+    { "id": 2, "name": "GSC Fraud Detector", "root": 0, "picture": "scripts/img/placeholder.png" }, 
+    {
+        "id": 3,
+        "name": "Hey Kanye!",
+        "root": 0,
+        "picture": "scripts/img/placeholder.ico",
+        "info": {
+            "title": "Hey Kanye!",
+            "dpic": "scripts/img/cat.jpg",
+            "desc": "Hey Kanye is a custom made rap song generator. It takes bulk lyrical data from artists of any genre and applies statistical modelling to produce structurally accurate and meaningful music lyrics. It then syncs it to beats and uses text-to-speech to drop a sick new track.",
+            "tags" : {
+                "Awards": ["Hack the North 2016 Finalist", "Microsoft Azure Best Usage"],
+                "Technologies Used": ["Python", "SQL Server", "Microsoft Azure", "NodeJS"]
+            }
+        }
+    },
+    { "id": 4, "name": "Movie Queue", "root": 0, "picture": "scripts/img/placeholder.png" }
 ]

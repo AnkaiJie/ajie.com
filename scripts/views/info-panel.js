@@ -18,7 +18,7 @@ define(['backbone', 'underscore', 'jquery',
             var $el = this.$el;
             if (node && node.selected) {
                 this.loadInfo(node);
-                $el.css('width', '600px');
+                $el.css('width', '500px');
             } else {
                 $el.css('width', '0px');
             }
@@ -28,9 +28,25 @@ define(['backbone', 'underscore', 'jquery',
             var $d = $('div .datastuff');
             $d.empty();
             var info = node.info;
-            $d.append('<img src="' + info.dpic + '" style="width:304px; height:228px;">');
+            $d.append('<center><img src="' + info.dpic + '" style="width:400px; height:300px;"></center>');
             $d.append('<h1>' + info.title + '</h1>');
-            $d.append('<h3>' + info.desc + '</h3>');
+
+
+            var desc_body = '<div class="main-desc-body">';
+            desc_body += '<h3>' + info.desc + '</h3>';
+
+            if (info.tags){
+                desc_body += '<div class="info-tags">';
+                for (var attr in info.tags) {
+                    desc_body+='<div class="tag-body"> <span class="label label-primary">' + attr + '</span>: ' + info.tags[attr] + '</div>'
+                }
+                desc_body += '</div>';
+            }
+
+
+            desc_body += '</div>';
+            $d.append(desc_body);
+
         },
 
         test: function() {

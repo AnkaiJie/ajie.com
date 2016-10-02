@@ -74,7 +74,7 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
                 .on("end", _.bind(dragended, this));
 
             this.simulation
-                .force('charge', d3.forceManyBody().strength(-1000))
+                .force('charge', d3.forceManyBody().strength(-1500))
                 .on('tick', _.bind(this.ticked, this));
 
         },
@@ -114,8 +114,8 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
                 d3.event.preventDefault();
             };
 
-            var trigPanel = function(d){
-                if (d.selected){
+            var trigPanel = function(d) {
+                if (d.selected) {
                     d.selected = false;
                 } else {
                     d.selected = true;
@@ -124,9 +124,9 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
                 d3.event.stopPropagation();
             };
 
-            var clickCanvas = function(e){
+            var clickCanvas = function(e) {
                 var self = this;
-                _.map(self.visNodes, function(node, key){
+                _.map(self.visNodes, function(node, key) {
                     self.visNodes[key].selected = false;
                 });
                 this.dispatch.trigger('toggleInfo');
@@ -161,8 +161,15 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
                 .attr('xlink:href', function(d) {
                     return d.picture;
                 })
-                .attr("height", 95)
-                .attr("width", 95);
+                .attr("height", 130)
+                .attr("width", 130);
+
+            var node_labels = this.d3node.append("text")
+                .attr("class", "node-label")
+                .attr("fill", 'black')
+                .text(function(d) {
+                    return d.name;
+                });
 
 
         },
@@ -207,10 +214,18 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
 
             this.d3node.selectAll('image')
                 .attr("x", function(d) {
-                    return d.x - 45;
+                    return d.x - 65;
                 })
                 .attr("y", function(d) {
-                    return d.y - 45;
+                    return d.y - 65;
+                });
+
+            this.d3node.selectAll('text')
+                .attr("x", function(d) {
+                    return d.x;
+                })
+                .attr("y", function(d) {
+                    return d.y + 85;
                 });
         },
 

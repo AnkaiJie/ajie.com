@@ -39,7 +39,19 @@ svg .node-label {
   transition: 0.5s;
   box-shadow: 0px 0 5px 2px #888888; }
   .info-section .datastuff {
-    padding-top: 40px; }
+    width: 50%;
+    padding-top: 50px;
+        /*         h1 {
+            padding-top: 10px;
+            color: $bgcol;
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 72px;
+            font-weight: bold;
+            letter-spacing: -1px;
+            line-height: 1;
+            text-align: cent
+er;
+        } */ }
     .info-section .datastuff img {
       display: block;
       width: 330px;
@@ -48,27 +60,40 @@ svg .node-label {
       border-width: 5px;
       border-color: #EBEBEB; }
     .info-section .datastuff h1 {
-      padding-top: 10px;
       color: #EBEBEB;
-      font-family: 'Helvetica Neue', sans-serif;
+      font-family: "Trebuchet MS";
       font-size: 72px;
       font-weight: bold;
-      letter-spacing: -1px;
-      line-height: 1;
-      text-align: center; }
+      margin-bottom: 10px;
+      margin-top: 40px;
+      text-align: center;
+      text-shadow: 0 3px 3px black; }
     .info-section .datastuff .main-desc-body {
       color: #BFBFBF;
       position: absolute;
-      margin: 0px 25px 0px 10px; }
+      margin: 0px 27px 0px 25px; }
       .info-section .datastuff .main-desc-body h3 {
         font-family: 'Helvetica', sans-serif; }
       .info-section .datastuff .main-desc-body .info-tags {
-        padding-top: 25px; }
-        .info-section .datastuff .main-desc-body .info-tags .tag-body {
-          padding-bottom: 2px; }
+        padding-top: 35px;
+        text-align: center;
+        padding-right: 12%;
+        padding-bottom: 15px; }
+        .info-section .datastuff .main-desc-body .info-tags .rib-group {
+          padding-bottom: 25px; }
+          .info-section .datastuff .main-desc-body .info-tags .rib-group .rib-wrap {
+            display: inline-block;
+            font-size: 12px;
+            padding-right: 25px;
+            padding-left: 25px;
+            padding-bottom: 5px; }
       .info-section .datastuff .main-desc-body .ext-links {
-        text-align: center; }
+        text-align: center;
+        padding-right: 12%; }
         .info-section .datastuff .main-desc-body .ext-links a {
-          display: inline-block; }
+          display: inline-block;
+          font-size: 25px; }
+          .info-section .datastuff .main-desc-body .ext-links a .fa-github {
+            color: #EBEBEB; }
 
 /*# sourceMappingURL=main.css.map */

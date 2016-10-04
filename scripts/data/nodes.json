@@ -22,7 +22,7 @@
             "dpic": "scripts/img/cat.jpg",
             "desc": "Hey Kanye is a custom made rap song generator. It takes bulk lyrical data from artists of any genre and applies statistical modelling to produce structurally accurate and meaningful music lyrics. It then syncs it to beats and uses text-to-speech to drop a sick new track.",
             "tags" : {
-                "Awards": ["Hack the North 2016 Finalist", "Microsoft Azure Best Usage"],
+                "Awards": ["Hack the North 2016 Finalist", "MS Azure Champion"],
                 "Technologies Used": ["Python", "SQL Server", "Microsoft Azure", "NodeJS"]
             },
             "links": {

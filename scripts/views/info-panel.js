@@ -18,10 +18,29 @@ define(['backbone', 'underscore', 'jquery',
             var $el = this.$el;
             if (node && node.selected) {
                 this.loadInfo(node);
-                $el.css('width', '500px');
+                $el.css('width', '600px');
             } else {
                 $el.css('width', '0px');
             }
+        },
+
+        processTagArrays: function(info) {
+            var colors = ['green', 'blue', 'red'];
+            var s='';
+            for (var attr in info) {
+                var arr = info[attr];
+
+                s += '<div class="rib-group">';
+                var col = colors[tag % colors.length];
+                if (attr == 'Awards') col = 'gold';
+
+                for (var tag in arr) {
+                    s += '<div class="rib-wrap ribbon-wrapper small-' + col + '"><span>' + arr[tag] + '</span></div>';
+                }
+                s += '</div>';
+
+            }
+            return s;
         },
 
         loadInfo: function(node) {
@@ -37,9 +56,7 @@ define(['backbone', 'underscore', 'jquery',
 
             if (info.tags) {
                 desc_body += '<div class="info-tags">';
-                for (var attr in info.tags) {
-                    desc_body += '<div class="tag-body"> <span class="label label-primary">' + attr + '</span>: ' + info.tags[attr] + '</div>';
-                }
+                desc_body += this.processTagArrays(info.tags);
                 desc_body += '</div>';
             }
 

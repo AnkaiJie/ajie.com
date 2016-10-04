@@ -1,7 +1,6 @@
 $bgcol: #EBEBEB;
 $infocol: #1b1a1c;
 $descfont: #BFBFBF;
-
 body,
 html,
 #mainPage {
@@ -52,7 +51,8 @@ svg {
     transition: 0.5s;
     box-shadow: 0px 0 5px 2px #888888;
     .datastuff {
-        padding-top: 40px;
+        width: 50%;
+        padding-top: 50px;
         img {
             display: block;
             width: 330px;
@@ -61,7 +61,7 @@ svg {
             border-width: 5px;
             border-color: $bgcol;
         }
-        h1 {
+        /*         h1 {
             padding-top: 10px;
             color: $bgcol;
             font-family: 'Helvetica Neue', sans-serif;
@@ -69,7 +69,18 @@ svg {
             font-weight: bold;
             letter-spacing: -1px;
             line-height: 1;
+            text-align: cent
+er;
+        } */
+        h1 {
+            color: $bgcol;
+            font-family: "Trebuchet MS";
+            font-size: 72px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            margin-top: 40px;
             text-align: center;
+            text-shadow: 0 3px 3px black;
         }
         .main-desc-body {
             color: $descfont;
@@ -77,17 +88,33 @@ svg {
                 font-family: 'Helvetica', sans-serif;
             }
             position: absolute;
-            margin: 0px 25px 0px 10px;
+            margin: 0px 27px 0px 25px;
             .info-tags {
-                padding-top: 25px;
-                .tag-body {
-                    padding-bottom: 2px;
+                padding-top: 35px;
+                text-align: center;
+                padding-right: 12%;
+                padding-bottom: 15px;
+                .rib-group {
+                    padding-bottom: 25px;
+                    .rib-wrap {
+                        display: inline-block;
+                        font-size: 12px;
+                        padding-right: 25px;
+                        padding-left: 25px;
+                        padding-bottom: 5px;
+                    }
                 }
             }
             .ext-links {
                 text-align: center;
+                padding-right: 12%;
                 a {
                     display: inline-block;
+                    font-size: 25px;
+                    .fa-github{
+                        color:$bgcol;
+                    }
+                    
                 }
             }
         }

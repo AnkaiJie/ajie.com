@@ -1,10 +1,14 @@
+$bgcol: #EBEBEB;
+$infocol: #1b1a1c;
+$descfont: #BFBFBF;
+
 body,
 html,
 #mainPage {
     height: 100%;
     width: 100%;
     overflow: hidden;
-    background-color: #e5dee1;
+    background-color: $bgcol;
 }
 
 #canvas {
@@ -26,8 +30,8 @@ svg {
 .instruction-box {
     z-index: 1;
     position: absolute;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     transform: translateY(50px);
     h4 {
         color: #333333;
@@ -44,14 +48,22 @@ svg {
     right: 0px;
     top: 0px;
     z-index: 1;
-    background-color: white;
+    background-color: $infocol;
     transition: 0.5s;
     box-shadow: 0px 0 5px 2px #888888;
     .datastuff {
         padding-top: 40px;
+        img {
+            display: block;
+            width: 330px;
+            height: 330px;
+            border-style: solid;
+            border-width: 5px;
+            border-color: $bgcol;
+        }
         h1 {
             padding-top: 10px;
-            color: #111;
+            color: $bgcol;
             font-family: 'Helvetica Neue', sans-serif;
             font-size: 72px;
             font-weight: bold;
@@ -60,8 +72,8 @@ svg {
             text-align: center;
         }
         .main-desc-body {
+            color: $descfont;
             h3 {
-                color: #333333;
                 font-family: 'Helvetica', sans-serif;
             }
             position: absolute;

@@ -4,7 +4,7 @@ html,
   height: 100%;
   width: 100%;
   overflow: hidden;
-  background-color: #e5dee1; }
+  background-color: #EBEBEB; }
 
 #canvas {
   height: 100%; }
@@ -35,14 +35,21 @@ svg .node-label {
   right: 0px;
   top: 0px;
   z-index: 1;
-  background-color: white;
+  background-color: #1b1a1c;
   transition: 0.5s;
   box-shadow: 0px 0 5px 2px #888888; }
   .info-section .datastuff {
     padding-top: 40px; }
+    .info-section .datastuff img {
+      display: block;
+      width: 330px;
+      height: 330px;
+      border-style: solid;
+      border-width: 5px;
+      border-color: #EBEBEB; }
     .info-section .datastuff h1 {
       padding-top: 10px;
-      color: #111;
+      color: #EBEBEB;
       font-family: 'Helvetica Neue', sans-serif;
       font-size: 72px;
       font-weight: bold;
@@ -50,10 +57,10 @@ svg .node-label {
       line-height: 1;
       text-align: center; }
     .info-section .datastuff .main-desc-body {
+      color: #BFBFBF;
       position: absolute;
       margin: 0px 25px 0px 10px; }
       .info-section .datastuff .main-desc-body h3 {
-        color: #333333;
         font-family: 'Helvetica', sans-serif; }
       .info-section .datastuff .main-desc-body .info-tags {
         padding-top: 25px; }

@@ -45,7 +45,8 @@ module.exports = function(grunt) {
         sass: {
             dev: {
                 files: {
-                    'src/scripts/css/main.css': 'src/scripts/css/main.scss'
+                    'src/scripts/css/main.css': 'src/scripts/css/main.scss',
+                    'src/scripts/css/ribbon.css': 'src/scripts/css/ribbon.scss'
                 }
             }
         },

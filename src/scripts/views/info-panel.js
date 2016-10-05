@@ -25,19 +25,25 @@ define(['backbone', 'underscore', 'jquery',
         },
 
         processTagArrays: function(info) {
-            var colors = ['green', 'blue', 'red'];
-            var s='';
+            var colors = ['blue', 'green', 'red'];
+            var s = '';
+            var i = 0;
             for (var attr in info) {
                 var arr = info[attr];
 
                 s += '<div class="rib-group">';
-                var col = colors[tag % colors.length];
-                if (attr == 'Awards') col = 'gold';
+                var col = colors[i % colors.length];
+                if (attr == 'Awards') {
+                    col = 'gold';
+                    --i;
+                }
 
                 for (var tag in arr) {
                     s += '<div class="rib-wrap ribbon-wrapper small-' + col + '"><span>' + arr[tag] + '</span></div>';
                 }
                 s += '</div>';
+
+                ++i;
 
             }
             return s;

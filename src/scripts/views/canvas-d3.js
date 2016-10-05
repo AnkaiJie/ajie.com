@@ -154,6 +154,7 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
                 .attr('xlink:href', function(d) {
                     return d.picture;
                 })
+                .attr("class", "img-circle")
                 .attr("height", 130)
                 .attr("width", 130);
 

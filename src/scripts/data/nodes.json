@@ -10,19 +10,42 @@
         }
     },
 
-    { "id": 1, "name": "Projects", "root": 0, "picture": "scripts/img/placeholder.png" },
-    { "id": 2, "name": "GSC Fraud Detector", "root": 0, "picture": "scripts/img/placeholder.png" }, 
     {
+        "id": 1,
+        "name": "Projects",
+        "root": 0,
+        "picture": "scripts/img/placeholder.png"
+    }, {
+        "id": 2,
+        "name": "GSC Fraud Detector",
+        "root": 0,
+        "picture": "scripts/img/gsc-icon.png",
+        "info": {
+            "title": "GSC Fraud Detector",
+            "dpic": "scripts/img/gsc.jpg",
+            "desc": "In academia, papers gain fame and credibility by the number of times they are cited by other papers. As with any other industry, there are people who try to cheat the system by colluding to inflate their citation count.  GSC Fraud Detector is a bulk data processing program that scrapes information for Google Scholar and examines relationships between authors to pinpoint fraudulent authors.",
+            "tags": {
+                "Awards": ["Research Project"],
+                "Algorithms": ["Graph Processing", "Bulk Data Analytics"],
+                "Technologies Used": ["Python"]
+            },
+            "links": {
+                "github": "https://github.com/AnkaiJie/Google-Scholar-Citation-Fraud-Data-Collector"
+            }
+        }
+
+    }, {
         "id": 3,
         "name": "Hey Kanye!",
         "root": 0,
-        "picture": "scripts/img/placeholder.ico",
+        "picture": "scripts/img/rap-icon.png",
         "info": {
             "title": "Hey Kanye!",
-            "dpic": "scripts/img/cat.jpg",
+            "dpic": "scripts/img/kanye.png",
             "desc": "Hey Kanye is a custom made rap song generator. It takes bulk lyrical data from artists of any genre and applies statistical modelling to produce structurally accurate and meaningful music lyrics. It then syncs it to beats and uses text-to-speech to drop a sick new track.",
-            "tags" : {
+            "tags": {
                 "Awards": ["Hack the North 2016 Finalist", "MS Azure Champion"],
+                "Algorithms": ["Markov Chains", "Parse Trees", "Edge Detection", "Probability Analysis"],
                 "Technologies Used": ["Python", "SQL Server", "Microsoft Azure", "NodeJS"]
             },
             "links": {

@@ -6,7 +6,6 @@ html,
 #mainPage {
     height: 100%;
     width: 100%;
-    overflow: hidden;
     background-color: $bgcol;
 }
 
@@ -50,13 +49,15 @@ svg {
     background-color: $infocol;
     transition: 0.5s;
     box-shadow: 0px 0 5px 2px #888888;
+    overflow-x: hidden;
+    overflow-y: hidden;
     .datastuff {
         width: 50%;
-        padding-top: 50px;
+        padding-top: 40px;
         img {
             display: block;
-            width: 330px;
-            height: 330px;
+            width: 320px;
+            height: 320px;
             border-style: solid;
             border-width: 5px;
             border-color: $bgcol;
@@ -74,17 +75,19 @@ er;
         } */
         h1 {
             color: $bgcol;
-            font-family: "Trebuchet MS";
-            font-size: 72px;
+            font-family: "Verdana";
+            font-size: 60px;
+            letter-spacing: -2px;
             font-weight: bold;
-            margin-bottom: 10px;
-            margin-top: 40px;
+            margin-bottom: 5px;
+            margin-top: 20px;
             text-align: center;
             text-shadow: 0 3px 3px black;
         }
         .main-desc-body {
             color: $descfont;
             h3 {
+                font-size: 18px;
                 font-family: 'Helvetica', sans-serif;
             }
             position: absolute;
@@ -92,8 +95,8 @@ er;
             .info-tags {
                 padding-top: 35px;
                 text-align: center;
-                padding-right: 12%;
-                padding-bottom: 15px;
+                padding-right: 5%;
+                padding-bottom: 10px;
                 .rib-group {
                     padding-bottom: 25px;
                     .rib-wrap {
@@ -101,13 +104,13 @@ er;
                         font-size: 12px;
                         padding-right: 25px;
                         padding-left: 25px;
-                        padding-bottom: 5px;
+                        padding-bottom: 3px;
                     }
                 }
             }
             .ext-links {
                 text-align: center;
-                padding-right: 12%;
+                padding-right: 5%;
                 a {
                     display: inline-block;
                     font-size: 25px;

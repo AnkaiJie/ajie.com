@@ -9,7 +9,7 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
             }).attributes);
             this.width = $(window).width();
             this.height = $(window).height();
-            rootNode = _.extend(rootNode, { /* x: this.width / 2, y: this.height * 0.4 */ });
+            rootNode = _.extend(rootNode, { fx: 0, fy: 0});
             this.visNodes.push(rootNode);
             this.initializeForce();
         },

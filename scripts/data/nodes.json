@@ -2,11 +2,11 @@
         "id": 0,
         "name": "Ankai",
         "root": 1,
-        "picture": "scripts/img/placeholder.png",
+        "picture": "scripts/img/user.png",
         "info": {
             "title": "Ankai Jie",
-            "dpic": "scripts/img/placeholder.png",
-            "desc": "Hello! My name is Ankai Jie. I am a second year student at the University of Waterloo studying computer science."
+            "dpic": "scripts/img/user.png",
+            "desc": "Hi! My name is Ankai Jie. I am a second year student at the University of Waterloo studying computer science."
         }
     },
 
@@ -14,7 +14,7 @@
         "id": 1,
         "name": "Projects",
         "root": 0,
-        "picture": "scripts/img/placeholder.png"
+        "picture": "scripts/img/projects.png"
     }, {
         "id": 2,
         "name": "GSC Fraud Detector",
@@ -49,9 +49,42 @@
                 "Technologies Used": ["Python", "SQL Server", "Microsoft Azure", "NodeJS"]
             },
             "links": {
-                "github": "https://github.com/AnkaiJie/rapGen"
+                "github": "https://github.com/AnkaiJie/Hey-Kanye"
             }
         }
-    },
-    { "id": 4, "name": "Movie Queue", "root": 0, "picture": "scripts/img/placeholder.png" }
+    }, {
+        "id": 4,
+        "name": "Movie Queue",
+        "root": 0,
+        "picture": "scripts/img/mq-icon.png",
+        "info": {
+            "title": "Movie Queue",
+            "dpic": "scripts/img/mq.jpg",
+            "desc": "MovieQueue is a web-based social application that allows users to create and build a queue of movies to watch in the future! Users can preview their friends’ movie profiles and see ratings, descriptions, and loads of other information for each movie.",
+            "tags": {
+                "Algorithms": ["Facebook API"],
+                "Technologies Used": ["EJS Templates", "NodeJS", "MongoDB"]
+            },
+            "links": {
+                "github": "https://github.com/AnkaiJie/MovieQueue"
+            }
+        }
+    }, {
+        "id": 5,
+        "name": "Track Master",
+        "root": 0,
+        "picture": "scripts/img/tm-icon.png",
+        "info": {
+            "title": "Track Master",
+            "dpic": "scripts/img/tm.jpg",
+            "desc": "Trackmaster is a web application that allows users to track selected other users. Trackers take on a list of subject and will receiver updated location information whenever subjects choose to check in. All accounts are stored in a database with an authentication system.",
+            "tags": {
+                "Algorithms": ["Spatial Service", "User Authentication"],
+                "Technologies Used": ["AngularJS", "NodeJS", "ExpressJS", "MongoDB"]
+            },
+            "links": {
+                "github": "https://github.com/AnkaiJie/TrackMaster"
+            }
+        }
+    }
 ]

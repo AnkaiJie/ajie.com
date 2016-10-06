@@ -9,7 +9,7 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
             }).attributes);
             this.width = $(window).width();
             this.height = $(window).height();
-            rootNode = _.extend(rootNode, { fx: 0, fy: 0});
+            rootNode = _.extend(rootNode, { fx: 0, fy: 0 });
             this.visNodes.push(rootNode);
             this.initializeForce();
         },
@@ -49,30 +49,6 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
         },
 
         setPhysics: function() {
-            function dragstarted(d) {
-                if (!d3.event.active) this.simulation.alphaTarget(0.3).restart();
-                d.fx = d.x;
-                d.fy = d.y;
-            }
-
-            function dragged(d) {
-                d.fx = d3.event.x;
-                d.fy = d3.event.y;
-            }
-
-            function dragended(d) {
-                if (!d3.event.active) this.simulation.alphaTarget(0);
-                if (!d.root) {
-                    d.fx = null;
-                    d.fy = null;
-                }
-            }
-
-            this.drag = d3.drag()
-                .on("start", _.bind(dragstarted, this))
-                .on("drag", dragged)
-                .on("end", _.bind(dragended, this));
-
             this.simulation
                 .force('charge', d3.forceManyBody().strength(-1500))
                 .on('tick', _.bind(this.ticked, this));
@@ -110,6 +86,9 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
             d3.selectAll('.nodes').remove();
 
             var excol = function(d) {
+                if (!d3.event.active){
+                    this.simulation.alpha(1);
+                } 
                 this.excolNode(d);
                 d3.event.preventDefault();
             };
@@ -121,8 +100,8 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
                     d.selected = true;
                 }
                 this.dispatch.trigger('toggleInfo', d);
-                this.dispatch.trigger('firstClick');
-                d3.event.stopPropagation();
+                d3.event.sourceEvent.preventDefault();
+
             };
 
             var clickCanvas = function(e) {
@@ -134,13 +113,53 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
                 this.dispatch.trigger('toggleInfo');
             };
 
+            this.firstMd = true;
+
+            var dragstarted = function(d) {
+                if (!d3.event.active) this.simulation.alphaTarget(0.3).restart();
+                d.fx = d.x;
+                d.fy = d.y;
+                if (this.firstMd) {
+                    this.ix = d.fx;
+                    this.iy = d.fy;
+                    this.firstMd = false;
+                }
+            };
+
+
+
+            var dragged = function(d) {
+                d.fx = d3.event.x;
+                d.fy = d3.event.y;
+            };
+
+            var dragended = function(d) {
+                this.dispatch.trigger('firstClick');
+                if (!d3.event.active) this.simulation.alphaTarget(0);
+                d3.event.sourceEvent.stopPropagation(); 
+                if (Math.abs(this.ix - d.fx) < 5 && Math.abs(this.iy - d.fy) < 5) {
+                    _.bind(trigPanel, this)(d);
+                }
+                this.firstMd = true;
+                if (!d.root) {
+                    d.fx = null;
+                    d.fy = null;
+                }
+            };
+
+            this.drag = d3.drag()
+                .on("start", _.bind(dragstarted, this))
+                .on("drag", _.bind(dragged, this))
+                .on("end", _.bind(dragended, this));
+
+
             this.d3node = this.svg.selectAll('g.node')
                 .data(this.visNodes)
                 .enter().append('g')
                 .attr('class', 'nodes')
                 .attr('transform', 'translate(' + this.width / 2 + ', ' + this.height * 0.4 + ')')
                 .call(this.drag)
-                .on('click', _.bind(trigPanel, this))
+                //.on('click', _.bind(trigPanel, this))
                 .on('contextmenu', _.bind(excol, this));
 
             this.svg.on('click', _.bind(clickCanvas, this));

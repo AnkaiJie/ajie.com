@@ -100,11 +100,10 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
                     d.selected = true;
                 }
                 this.dispatch.trigger('toggleInfo', d);
-                d3.event.sourceEvent.preventDefault();
-
             };
 
-            var clickCanvas = function(e) {
+            var clickCanvas = function() {
+                if (d3.event);
                 var self = this;
                 _.map(self.visNodes, function(node, key) {
                     self.visNodes[key].selected = false;
@@ -159,7 +158,7 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
                 .attr('class', 'nodes')
                 .attr('transform', 'translate(' + this.width / 2 + ', ' + this.height * 0.4 + ')')
                 .call(this.drag)
-                //.on('click', _.bind(trigPanel, this))
+                .on('click', function(d) {d3.event.stopPropagation();})
                 .on('contextmenu', _.bind(excol, this));
 
             this.svg.on('click', _.bind(clickCanvas, this));

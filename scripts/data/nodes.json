@@ -6,7 +6,7 @@
         "info": {
             "title": "Ankai Jie",
             "dpic": "scripts/img/user.png",
-            "desc": "Hi! My name is Ankai Jie. I am a second year student at the University of Waterloo studying computer science."
+            "desc": "Hi! My name is Ankai Jie. I am a second year student at the University of Waterloo studying computer science and statistics. This website, written from scratch with D3.js and Backbone.js, is meant to portray me in a graph format. Feel free to explore my profile! Click to see details and right click to expand."
         }
     },
 
@@ -85,6 +85,16 @@
             "links": {
                 "github": "https://github.com/AnkaiJie/TrackMaster"
             }
+        }
+    }, {
+        "id": 6,
+        "name": "Experience",
+        "root": 0,
+        "picture": "scripts/img/placeholder.png",
+        "info": {
+            "title": "Experience",
+            "dpic": "scripts/img/placeholder.png",
+            "desc": "To see a summary of the past places and positions I've worked, including work and extracurriculars, expand this node. To see my resume, click on the link below."
         }
     }
 ]

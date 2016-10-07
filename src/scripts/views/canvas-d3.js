@@ -39,11 +39,13 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
                 this.drawNodes();
                 this.simulation
                     .nodes(this.visNodes)
-                    .force('link', d3.forceLink());
+                    .force('link', d3.forceLink().id(function(d){
+                       return d.id; 
+                    }));
 
                 this.simulation.force('link')
                     .links(this.visEdges)
-                    .distance(300);
+                    .distance(250);
                 this.simulation.restart();
             }
         },
@@ -164,7 +166,7 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
             this.svg.on('click', _.bind(clickCanvas, this));
 
             var circles = this.d3node.append('circle')
-                .attr('r', 65)
+                .attr('r', 50)
                 .attr('fill', '#eee');
 
 
@@ -173,8 +175,8 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
                     return d.picture;
                 })
                 .attr("class", "img-circle")
-                .attr("height", 130)
-                .attr("width", 130);
+                .attr("height", 100)
+                .attr("width", 100);
 
             var node_labels = this.d3node.append("text")
                 .attr("class", "node-label")
@@ -226,10 +228,10 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
 
             this.d3node.selectAll('image')
                 .attr("x", function(d) {
-                    return d.x - 65;
+                    return d.x - 50;
                 })
                 .attr("y", function(d) {
-                    return d.y - 65;
+                    return d.y - 50;
                 });
 
             this.d3node.selectAll('text')
@@ -237,7 +239,7 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
                     return d.x;
                 })
                 .attr("y", function(d) {
-                    return d.y + 85;
+                    return d.y + 65;
                 });
         },
 

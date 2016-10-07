@@ -167,7 +167,7 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
 
             var circles = this.d3node.append('circle')
                 .attr('r', 50)
-                .attr('fill', '#eee');
+                .attr('fill', 'white');
 
 
             var images = this.d3node.append('g:image')
@@ -189,7 +189,6 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
         },
 
         drawEdges: function() {
-
             d3.selectAll('.edges').remove();
 
             this.d3edge = this.svg.selectAll('g.edges')

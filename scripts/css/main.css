@@ -59,17 +59,18 @@ er;
       height: 320px;
       border-style: solid;
       border-width: 5px;
-      border-color: #EBEBEB; }
+      border-color: #EBEBEB;
+      background-color: white; }
     .info-section .datastuff h1 {
       color: #EBEBEB;
       font-family: "Verdana";
-      font-size: 60px;
+      font-size: 48px;
       letter-spacing: -2px;
       font-weight: bold;
       margin-bottom: 5px;
       margin-top: 20px;
       text-align: center;
-      text-shadow: 0 3px 3px black; }
+      text-shadow: 0 5px 5px black; }
     .info-section .datastuff .main-desc-body {
       color: #BFBFBF;
       position: absolute;

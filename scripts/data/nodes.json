@@ -8,13 +8,16 @@
             "dpic": "scripts/img/user.png",
             "desc": "Hi! My name is Ankai Jie. I am a second year student at the University of Waterloo studying computer science and statistics. This website, written from scratch with D3.js and Backbone.js, is meant to portray me in a graph format. Feel free to explore my profile! Click to see details and right click to expand."
         }
-    },
-
-    {
+    }, {
         "id": 1,
         "name": "Projects",
         "root": 0,
-        "picture": "scripts/img/projects.png"
+        "picture": "scripts/img/projects.png",
+        "info": {
+            "title": "Projects",
+            "dpic": "scripts/img/projects-pic.png",
+            "desc": "To see key projects that I have worked on over the years, expand this node. Each project will have a link to Github."
+        }
     }, {
         "id": 2,
         "name": "GSC Fraud Detector",
@@ -88,13 +91,53 @@
         }
     }, {
         "id": 6,
-        "name": "Experience",
+        "name": "Work Experience",
         "root": 0,
-        "picture": "scripts/img/placeholder.png",
+        "picture": "scripts/img/work-icon.png",
         "info": {
-            "title": "Experience",
-            "dpic": "scripts/img/placeholder.png",
-            "desc": "To see a summary of the past places and positions I've worked, including work and extracurriculars, expand this node. To see my resume, click on the link below."
+            "title": "Work Experience",
+            "dpic": "scripts/img/work.png",
+            "desc": "I am interested in pursuing work in the data science, software, or quatitiative finance fields. To see a summary of the past places and positions I've worked, expand this node."
+        }
+    }, {
+        "id": 7,
+        "name": "Scotiabank",
+        "root": 0,
+        "picture": "scripts/img/sb-icon.png",
+        "info": {
+            "title": "Data Science Engineer",
+            "dpic": "scripts/img/scotia.png",
+            "desc": "I worked on the Network Analytics team at Scotiabank. On this team I did a lot of analytical and data processing work in analyzing the bank's transactional data in a network (graph) view. I worked on a large variety of projects, including creating a framework for processing temporal networks, implementing graph processing algorithms, and improving web functionality of our network visualizer.",
+            "tags": {
+                "Technologies Used": ["Hadoop", "Javascript", "Java", "SQL", "Python"]
+            }
+        }
+    }, {
+        "id": 8,
+        "name": "Dawn Infotek",
+        "root": 0,
+        "picture": "scripts/img/di-icon.png",
+        "info": {
+            "title": "Web Developer",
+            "dpic": "scripts/img/di-icon.png",
+            "desc": "I worked on the creation of a new internal management web application for the company. I created a front end with AngularJS that permitted convenient and visually appealing access to the MySQL database. I built the Java pipeline from front to back end and implemented thorough functionality testing.",
+            "tags": {
+                "Technologies Used": ["AngularJS", "Java", "JQuery", "RESTful Services", "Spring MVC"]
+            }
+        }
+    }, {
+        "id": 9,
+        "name": "Education",
+        "root": 0,
+        "picture": "scripts/img/ed-icon.png",
+        "info": {
+            "title": "Education",
+            "dpic": "scripts/img/waterloo.jpg",
+            "desc": "I am pursuing a Bachelor of Computer Science at the University of Waterloo. I am planning to pursue the anticipated Data Science major and the business electives option for computer science students.",
+            "tags": {
+                "Awards": ["Deans Honor List", "Marsh Memorial Scholarship", "President's Scholarship"]    
+            }
         }
     }
+
 ]

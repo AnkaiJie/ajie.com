@@ -97,7 +97,10 @@
         "info": {
             "title": "Work Experience",
             "dpic": "scripts/img/work.png",
-            "desc": "I am interested in pursuing work in the data science, software, or quatitiative finance fields. To see a summary of the past places and positions I've worked, expand this node."
+            "desc": "I am interested in pursuing work in the data science, software, or quatitiative finance fields. To see a summary of the past places and positions I've worked, expand this node. To see my resume, click on the link below.",
+            "links": {
+                "resume": "scripts/data/resume.pdf"
+            }
         }
     }, {
         "id": 7,

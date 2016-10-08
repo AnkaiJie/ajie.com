@@ -71,6 +71,8 @@ define(['backbone', 'underscore', 'jquery',
                 for (var src in info.links) {
                     if (src == 'github') {
                         desc_body += '<a class="btn btn-lg btn-social-icon btn-github" href ="' + info.links[src] + '" target="_blank"> <span class="fa fa-github"> </span> </a>';
+                    } else if (src == 'resume') {
+                        desc_body += '<a class="btn btn-lg" href ="' + info.links[src] + '" target="_blank"> <span class="fa fa-file"> </span> </a>';
                     }
                 }
                 desc_body += '</div>';

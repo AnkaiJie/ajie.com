@@ -7,6 +7,8 @@ html,
     height: 100%;
     width: 100%;
     background-color: $bgcol;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 #canvas {
@@ -47,17 +49,17 @@ svg {
     top: 0px;
     z-index: 1;
     background-color: $infocol;
+    overflow-y: auto;
+    overflow-x: hidden;
     transition: 0.5s;
     box-shadow: 0px 0 5px 2px #888888;
-    overflow-x: hidden;
-    overflow-y: hidden;
     .datastuff {
         width: 50%;
         padding-top: 40px;
         img {
             display: block;
-            width: 320px;
-            height: 320px;
+            width: 330px;
+            height: 330px;
             border-style: solid;
             border-width: 5px;
             border-color: $bgcol;
@@ -78,6 +80,7 @@ er;
             color: $bgcol;
             font-family: "Verdana";
             font-size: 48px;
+            font-size: 2.2vw;
             letter-spacing: -2px;
             font-weight: bold;
             margin-bottom: 5px;
@@ -89,6 +92,7 @@ er;
             color: $descfont;
             h3 {
                 font-size: 18px;
+                font-size: 0.95vw;
                 font-family: 'Helvetica', sans-serif;
             }
             position: absolute;
@@ -115,10 +119,9 @@ er;
                 a {
                     display: inline-block;
                     font-size: 25px;
-                    .fa-github{
-                        color:$bgcol;
+                    .fa-github {
+                        color: $bgcol;
                     }
-                    
                 }
             }
         }

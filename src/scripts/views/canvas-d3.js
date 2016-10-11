@@ -55,6 +55,7 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
                 .force('charge', d3.forceManyBody().strength(-1500))
                 .on('tick', _.bind(this.ticked, this));
 
+
         },
 
         excolNode: function(d) {
@@ -245,6 +246,7 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
         render: function() {
             this.svg = d3.select(this.$el[0]).append('svg')
                 .attr('width', '100%').attr('height', '100%');
+            // this.svg.call(d3.zoom().on('zoom', ))
         }
 
     });

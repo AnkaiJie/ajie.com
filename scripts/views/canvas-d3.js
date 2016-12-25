@@ -1,4 +1,5 @@
-define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) {
+define(['backbone', 'underscore', 'jquery', 'd3', 'contextMenu'], 
+    function(backbone, _, $, d3, contextMenu) {
 
     var Canvas = Backbone.View.extend({
 
@@ -11,7 +12,10 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
             this.height = $(window).height();
             rootNode = _.extend(rootNode, { fx: 0, fy: 0 });
             this.visNodes.push(rootNode);
+            this.selectedNode = rootNode;
             this.initializeForce();
+
+
         },
 
         id: 'canvas',
@@ -60,6 +64,25 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
 
         excolNode: function(d) {
             if (d.expanded) {
+                this.collapseNode(d);
+            } else {
+                this.expandNode(d);
+            }
+        },
+
+        expandNode: function(d) {
+            if (!d.expanded) {
+                d.expanded = true;
+                var items = this.nodes.getNodeExpansion(d);
+
+                this.visNodes = this.visNodes.concat(items.newNodes);
+                this.visEdges = this.visEdges.concat(items.newEdges);
+                this.refresh();
+            }
+        },
+
+        collapseNode: function(d) {
+            if (d.expanded) {
                 d.expanded = false;
                 var removes = this.nodes.getNodesCollapsed(d, this.visNodes);
                 this.visNodes = _.filter(this.visNodes, function(n) {
@@ -68,18 +91,6 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
                 this.visEdges = _.filter(this.visEdges, function(e) {
                     return removes.edgesToRemove.indexOf(e.id) === -1;
                 });
-                console.log(this.visNodes);
-                console.log(this.visEdges);
-                this.refresh();
-
-            } else {
-                d.expanded = true;
-                var items = this.nodes.getNodeExpansion(d);
-
-                this.visNodes = this.visNodes.concat(items.newNodes);
-                this.visEdges = this.visEdges.concat(items.newEdges);
-                console.log(this.visNodes);
-                console.log(this.visEdges);
                 this.refresh();
 
             }
@@ -96,7 +107,17 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
                 d3.event.preventDefault();
             };
 
-            var trigPanel = function(d) {
+            var expand = function() {
+                this.simulation.alpha(1);
+                this.expandNode(this.selectedNode);
+            };
+
+            var collapse = function() {
+                this.collapseNode(this.selectedNode);
+            };
+
+            var trigPanel = function() {
+                var d = this.selectedNode;
                 if (d.selected) {
                     d.selected = false;
                 } else {
@@ -114,6 +135,32 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
                 this.dispatch.trigger('firstClick');
                 this.dispatch.trigger('toggleInfo');
             };
+
+            //Nodes context menu
+            $.contextMenu({
+                selector: 'g.nodes',
+                trigger: 'left',
+                //autoHide: 'true',
+                className:'context-custom',
+                items: {
+                    'focus': {
+                        name: 'Show Info',
+                        icon: 'fa-bullseye',
+                        callback: _.bind(trigPanel, this)
+                    },
+                    'sep1': '---------',
+                    'expand': {
+                        name: 'Expand',
+                        icon: 'fa-expand',
+                        callback: _.bind(expand, this)
+                    },
+                    'collapse': {
+                        name: 'Collapse',
+                        icon: 'fa-compress',
+                        callback: _.bind(collapse, this)
+                    }
+                }
+            });
 
             this.firstMd = true;
 
@@ -139,9 +186,10 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
                 this.dispatch.trigger('firstClick');
                 if (!d3.event.active) this.simulation.alphaTarget(0);
                 d3.event.sourceEvent.stopPropagation(); 
-                if (Math.abs(this.ix - d.fx) < 5 && Math.abs(this.iy - d.fy) < 5) {
-                    _.bind(trigPanel, this)(d);
-                }
+                // This was to trigger show info when dragged a bit
+                // if (Math.abs(this.ix - d.fx) < 5 && Math.abs(this.iy - d.fy) < 5) {
+                //     _.bind(trigPanel, this)(d);
+                // }
                 this.firstMd = true;
                 if (!d.root) {
                     d.fx = null;
@@ -154,14 +202,17 @@ define(['backbone', 'underscore', 'jquery', 'd3'], function(backbone, _, $, d3) 
                 .on("drag", _.bind(dragged, this))
                 .on("end", _.bind(dragended, this));
 
-
+            //only for d3node reference
+            var self = this;
             this.d3node = this.svg.selectAll('g.node')
                 .data(this.visNodes)
                 .enter().append('g')
                 .attr('class', 'nodes')
                 .attr('transform', 'translate(' + this.width / 2 + ', ' + this.height * 0.4 + ')')
                 .call(this.drag)
-                .on('click', function(d) {d3.event.stopPropagation();})
+                .on('click', function(d) {
+                    self.selectedNode = d;
+                })
                 .on('contextmenu', _.bind(excol, this));
 
             this.svg.on('click', _.bind(clickCanvas, this));

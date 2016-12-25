@@ -18,7 +18,7 @@ define(['backbone', 'underscore', 'jquery',
             var $el = this.$el;
             if (node && node.selected) {
                 this.loadInfo(node);
-                $el.css('width', '600px');
+                $el.css('width', '33%');
             } else {
                 $el.css('width', '0px');
             }

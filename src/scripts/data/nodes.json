@@ -2,10 +2,10 @@
         "id": 0,
         "name": "Ankai",
         "root": 1,
-        "picture": "scripts/img/user.png",
+        "picture": "scripts/img/ankai.png",
         "info": {
             "title": "Ankai Jie",
-            "dpic": "scripts/img/user.png",
+            "dpic": "scripts/img/ankai.png",
             "desc": "Hi! My name is Ankai Jie. I am a second year student at the University of Waterloo studying computer science and statistics. This website, written from scratch with D3.js and Backbone.js, is meant to portray me in a graph format. Feel free to explore my profile! Click to see details and right click to expand."
         }
     }, {

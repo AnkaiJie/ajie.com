@@ -9,8 +9,7 @@ define(['backbone', 'views/canvas-d3', 'jquery', 'views/info-panel', 'views/inst
                 var instruc = new Instruc({ dispatch: Dispatch });
                 this.$el.append(canvas.$el);
                 this.$el.append(infoPanel.$el);
-                console.log(instruc.$el);
-                this.$el.append(instruc.$el);
+                canvas.$el.append(instruc.$el);
             }
         });
         return Index;

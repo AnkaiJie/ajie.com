@@ -4,7 +4,8 @@ require.config({
         "underscore": "bower_lib/underscore/underscore",
         "backbone": "bower_lib/backbone/backbone",
         "d3": "bower_lib/d3/d3",
-        "text": "bower_lib/text/text"
+        "text": "bower_lib/text/text",
+        "contextMenu": 'bower_lib/jQuery-contextMenu/dist/jquery.contextMenu'
     }
 });
 

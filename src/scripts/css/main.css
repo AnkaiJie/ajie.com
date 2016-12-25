@@ -3,6 +3,7 @@ html,
 #mainPage {
   height: 100%;
   width: 100%;
+  display: block;
   background-color: #EBEBEB;
   overflow-x: hidden;
   overflow-y: hidden; }
@@ -10,23 +11,31 @@ html,
 #canvas {
   height: 100%; }
 
+svg .nodes {
+  stroke: white;
+  stroke-width: 2px; }
 svg .node-label {
   color: #ffffff;
   font-family: 'Raleway', sans-serif;
   font-size: 14px;
   font-weight: 700;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  stroke-width: 0px; }
+
+.context-custom {
+  font-size: 18px !important; }
 
 .instruction-box {
   z-index: 1;
+  text-align: center;
   position: absolute;
-  top: 0;
-  left: 0;
-  transform: translateY(50px); }
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, 0%); }
   .instruction-box h4 {
     color: #333333;
     font-family: 'Bitter', sans-serif;
-    font-size: 18px;
+    font-size: 28px;
     font-weight: bold; }
 
 .info-section {
@@ -42,7 +51,7 @@ svg .node-label {
   transition: 0.5s;
   box-shadow: 0px 0 5px 2px #888888; }
   .info-section .datastuff {
-    width: 50%;
+    width: 40%;
     padding-top: 40px;
         /*         h1 {
             padding-top: 10px;
@@ -57,8 +66,8 @@ er;
         } */ }
     .info-section .datastuff img {
       display: block;
-      width: 330px;
-      height: 330px;
+      width: 50%;
+      height: 50%;
       border-style: solid;
       border-width: 5px;
       border-color: #EBEBEB;
@@ -77,10 +86,10 @@ er;
     .info-section .datastuff .main-desc-body {
       color: #BFBFBF;
       position: absolute;
-      margin: 0px 27px 0px 25px; }
+      margin: 0px 5% 0px 5%; }
       .info-section .datastuff .main-desc-body h3 {
         font-size: 18px;
-        font-size: 0.95vw;
+        font-size: 1.1vw;
         font-family: 'Helvetica', sans-serif; }
       .info-section .datastuff .main-desc-body .info-tags {
         padding-top: 35px;

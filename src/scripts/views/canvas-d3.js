@@ -187,9 +187,10 @@ define(['backbone', 'underscore', 'jquery', 'd3', 'contextMenu'],
                 if (!d3.event.active) this.simulation.alphaTarget(0);
                 d3.event.sourceEvent.stopPropagation(); 
                 // This was to trigger show info when dragged a bit
-                // if (Math.abs(this.ix - d.fx) < 5 && Math.abs(this.iy - d.fy) < 5) {
-                //     _.bind(trigPanel, this)(d);
-                // }
+                if (Math.abs(this.ix - d.fx) < 5 && Math.abs(this.iy - d.fy) < 5) {
+                    //fix for d3 chrome dragging issue, which is ok but not always ideal. 
+                    $(':hover').last().click();
+                }
                 this.firstMd = true;
                 if (!d.root) {
                     d.fx = null;
@@ -211,6 +212,7 @@ define(['backbone', 'underscore', 'jquery', 'd3', 'contextMenu'],
                 .attr('transform', 'translate(' + this.width / 2 + ', ' + this.height * 0.4 + ')')
                 .call(this.drag)
                 .on('click', function(d) {
+                    console.log('CLICKED');
                     self.selectedNode = d;
                 })
                 .on('contextmenu', _.bind(excol, this));

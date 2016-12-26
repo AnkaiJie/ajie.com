@@ -127,7 +127,6 @@ define(['backbone', 'underscore', 'jquery', 'd3', 'contextMenu'],
             };
 
             var clickCanvas = function() {
-                if (d3.event);
                 var self = this;
                 _.map(self.visNodes, function(node, key) {
                     self.visNodes[key].selected = false;
@@ -190,6 +189,8 @@ define(['backbone', 'underscore', 'jquery', 'd3', 'contextMenu'],
                 if (Math.abs(this.ix - d.fx) < 5 && Math.abs(this.iy - d.fy) < 5) {
                     //fix for d3 chrome dragging issue, which is ok but not always ideal. 
                     $(':hover').last().click();
+                    this.selectedNode = d;
+                    this.dispatch.trigger('toggleInfo');
                 }
                 this.firstMd = true;
                 if (!d.root) {

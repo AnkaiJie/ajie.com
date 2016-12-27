@@ -24,13 +24,13 @@
         "root": 0,
         "picture": "scripts/img/gsc-icon.png",
         "info": {
-            "title": "GSC Fraud Detector",
+            "title": "Academic Fraud Detector",
             "dpic": "scripts/img/gsc.jpg",
-            "desc": "In academia, papers gain fame and credibility by the number of times they are cited by other papers. As with any other industry, there are people who try to cheat the system by colluding to inflate their citation count.  GSC Fraud Detector is a bulk data processing program that scrapes information for Google Scholar and examines relationships between authors to pinpoint fraudulent authors.",
+            "desc": "In academia, papers gain fame and credibility by the number of times they are cited by other papers. As with any other industry, there are people who try to cheat the system by colluding to inflate their citation count.  Academic Fraud Detector is a research project I am working on with an associate dean at the University of Waterloo that applies experimental data/graph processing algorithms on citation data between academic publishers retrieved from Scopus. These algorithms are being optimized to highlight fraudulent relationships and expose citation rings.",
             "tags": {
                 "Awards": ["Research Project"],
-                "Algorithms": ["Graph Processing", "Bulk Data Analytics"],
-                "Technologies Used": ["Python"]
+                "Algorithms": ["Graph Processing", "ETL Pipelines"],
+                "Technologies Used": ["Python", "SQL"]
             },
             "links": {
                 "github": "https://github.com/AnkaiJie/Google-Scholar-Citation-Fraud-Data-Collector"

@@ -10,7 +10,6 @@ define(['backbone', 'underscore', 'jquery',
         initialize: function(options) {
             _.extend(this, options);
             this.listenTo(this.dispatch, 'toggleInfo', this.toggleVis);
-            this.listenTo(this.dispatch, 'test', this.test);
             this.render();
         },
 
@@ -18,9 +17,9 @@ define(['backbone', 'underscore', 'jquery',
             var $el = this.$el;
             if (node && node.selected) {
                 this.loadInfo(node);
-                $el.css('width', '33%');
+                $el.css('right', '0%');
             } else {
-                $el.css('width', '0px');
+                $el.css('right', '-33%');
             }
         },
 
@@ -82,10 +81,6 @@ define(['backbone', 'underscore', 'jquery',
             desc_body += '</div>';
             $d.append(desc_body);
 
-        },
-
-        test: function() {
-            console.log('in test');
         },
 
         render: function() {

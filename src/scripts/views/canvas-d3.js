@@ -21,13 +21,6 @@ define(['backbone', 'underscore', 'jquery', 'd3', 'contextMenu'],
         id: 'canvas',
         visNodes: [],
         visEdges: [],
-        // events: {
-        //     'click svg': 'clickCanvas'
-        // },
-
-        // clickCanvas: function(e) {
-        //     this.dispatch.trigger('toggleInfo');
-        // },
 
         initializeForce: function() {
             this.simulation = d3.forceSimulation();
@@ -187,7 +180,7 @@ define(['backbone', 'underscore', 'jquery', 'd3', 'contextMenu'],
                 d3.event.sourceEvent.stopPropagation(); 
                 // This was to trigger show info when dragged a bit
                 if (Math.abs(this.ix - d.fx) < 5 && Math.abs(this.iy - d.fy) < 5) {
-                    //fix for d3 chrome dragging issue, which is ok but not always ideal. 
+                    //fix for d3 chrome dragging issue, which is ok but not always ideal.
                     $(':hover').last().click();
                     this.selectedNode = d;
                     this.dispatch.trigger('toggleInfo');
@@ -213,7 +206,6 @@ define(['backbone', 'underscore', 'jquery', 'd3', 'contextMenu'],
                 .attr('transform', 'translate(' + this.width / 2 + ', ' + this.height * 0.4 + ')')
                 .call(this.drag)
                 .on('click', function(d) {
-                    console.log('CLICKED');
                     self.selectedNode = d;
                 })
                 .on('contextmenu', _.bind(excol, this));
@@ -221,7 +213,7 @@ define(['backbone', 'underscore', 'jquery', 'd3', 'contextMenu'],
             this.svg.on('click', _.bind(clickCanvas, this));
 
             var circles = this.d3node.append('circle')
-                .attr('r', 50)
+                .attr('r', 45)
                 .attr('fill', 'white');
 
 
@@ -230,8 +222,8 @@ define(['backbone', 'underscore', 'jquery', 'd3', 'contextMenu'],
                     return d.picture;
                 })
                 .attr("class", "img-circle")
-                .attr("height", 100)
-                .attr("width", 100);
+                .attr("height", 90)
+                .attr("width", 90);
 
             var node_labels = this.d3node.append("text")
                 .attr("class", "node-label")
@@ -257,7 +249,6 @@ define(['backbone', 'underscore', 'jquery', 'd3', 'contextMenu'],
         },
 
         ticked: function() {
-            console.log('tick');
             this.d3edge.selectAll('line')
                 .attr("x1", function(d) {
                     return d.source.x;
@@ -282,10 +273,10 @@ define(['backbone', 'underscore', 'jquery', 'd3', 'contextMenu'],
 
             this.d3node.selectAll('image')
                 .attr("x", function(d) {
-                    return d.x - 50;
+                    return d.x - 45;
                 })
                 .attr("y", function(d) {
-                    return d.y - 50;
+                    return d.y - 45;
                 });
 
             this.d3node.selectAll('text')
@@ -293,7 +284,7 @@ define(['backbone', 'underscore', 'jquery', 'd3', 'contextMenu'],
                     return d.x;
                 })
                 .attr("y", function(d) {
-                    return d.y + 65;
+                    return d.y + 60;
                 });
         },
 

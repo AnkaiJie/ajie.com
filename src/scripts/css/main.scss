@@ -53,9 +53,9 @@ svg {
 
 .info-section {
     height: 100%;
-    width: 0px;
-    position: fixed;
-    right: 0px;
+    width: 33%;
+    position: absolute;
+    right: -33%;
     top: 0px;
     z-index: 1;
     background-color: $infocol;
@@ -64,28 +64,17 @@ svg {
     transition: 0.5s;
     box-shadow: 0px 0 5px 2px #888888;
     .datastuff {
-        width: 40%;
         padding-top: 40px;
+        display: block;
         img {
-            display: block;
-            width: 50%;
-            height: 50%;
+            width: 40%;
+            height: 40%;
             border-style: solid;
             border-width: 3px;
             border-color: $bgcol;
             background-color: white;
         }
-        /*         h1 {
-            padding-top: 10px;
-            color: $bgcol;
-            font-family: 'Helvetica Neue', sans-serif;
-            font-size: 72px;
-            font-weight: bold;
-            letter-spacing: -1px;
-            line-height: 1;
-            text-align: cent
-er;
-        } */
+
         h1 {
             color: $bgcol;
             font-family: "Verdana";
@@ -100,13 +89,13 @@ er;
         }
         .main-desc-body {
             color: $descfont;
-            h3 {
+            h3 {    
                 font-size: 18px;
-                font-size: 1.1vw;
+                font-size: 1vw;
                 font-family: 'Helvetica', sans-serif;
             }
-            position: absolute;
-            margin: 0px 5% 0px 5%;
+            display: block;
+            margin: 0px 9% 0px 10%;
             .info-tags {
                 padding-top: 35px;
                 text-align: center;

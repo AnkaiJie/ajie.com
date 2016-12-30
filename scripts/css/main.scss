@@ -37,16 +37,15 @@ svg {
 }
 
 .instruction-box {
-    z-index: 1;
     text-align: center;
     position: absolute;
-    top: 10%;
+    top: 13%;
     left:50%;
     transform: translate(-50%,0%);
     h4 {
         color: #333333;
         font-family: 'Bitter', sans-serif;
-        font-size: 28px;
+        font-size: 24px;
         font-weight: bold;
     }
 }

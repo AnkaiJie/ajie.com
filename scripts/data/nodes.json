@@ -3,6 +3,7 @@
         "name": "Ankai",
         "root": 1,
         "picture": "scripts/img/ankai.png",
+        "parent": true,
         "info": {
             "title": "Ankai Jie",
             "dpic": "scripts/img/ankai.png",
@@ -13,6 +14,7 @@
         "name": "Projects",
         "root": 0,
         "picture": "scripts/img/projects.png",
+        "parent": true,
         "info": {
             "title": "Projects",
             "dpic": "scripts/img/projects-pic.png",
@@ -94,6 +96,7 @@
         "name": "Work Experience",
         "root": 0,
         "picture": "scripts/img/work-icon.png",
+        "parent": true,
         "info": {
             "title": "Work Experience",
             "dpic": "scripts/img/work.png",

@@ -8,13 +8,10 @@ define(['backbone', 'underscore', 'jquery', 'd3', 'contextMenu'],
             var rootNode = _.clone(this.nodes.find(function(n) {
                 return n.attributes.root && n.attributes.root === 1;
             }).attributes);
-            this.width = $(window).width();
-            this.height = $(window).height();
             rootNode = _.extend(rootNode, { fx: 0, fy: 0 });
             this.visNodes.push(rootNode);
             this.selectedNode = rootNode;
             this.initializeForce();
-
 
         },
 
@@ -39,20 +36,17 @@ define(['backbone', 'underscore', 'jquery', 'd3', 'contextMenu'],
                     .force('link', d3.forceLink().id(function(d){
                        return d.id; 
                     }));
-
                 this.simulation.force('link')
                     .links(this.visEdges)
-                    .distance(250);
+                    .distance(this.nodeRadius*3.5);
                 this.simulation.restart();
             }
         },
 
         setPhysics: function() {
             this.simulation
-                .force('charge', d3.forceManyBody().strength(-1500))
+                .force('charge', d3.forceManyBody().strength(-1000))
                 .on('tick', _.bind(this.ticked, this));
-
-
         },
 
         excolNode: function(d) {
@@ -100,13 +94,27 @@ define(['backbone', 'underscore', 'jquery', 'd3', 'contextMenu'],
                 d3.event.preventDefault();
             };
 
-            var expand = function() {
-                this.simulation.alpha(1);
-                this.expandNode(this.selectedNode);
+            var isNotParent = function() {
+                return !this.selectedNode.parent;
             };
 
-            var collapse = function() {
-                this.collapseNode(this.selectedNode);
+            var isNotExpanded = function() {
+                return !this.selectedNode.expanded;
+            };
+
+            var expand = function(key, options) {
+                var f = _.bind(isNotParent, this);
+                if (!f()){
+                    this.simulation.alpha(1);
+                    this.expandNode(this.selectedNode);  
+                }
+            };
+
+            var collapse = function(key, options) {
+                var f = _.bind(isNotExpanded, this);
+                if (!f()) {
+                    this.collapseNode(this.selectedNode);
+                }
             };
 
             var trigPanel = function() {
@@ -132,6 +140,7 @@ define(['backbone', 'underscore', 'jquery', 'd3', 'contextMenu'],
             $.contextMenu({
                 selector: 'g.nodes',
                 trigger: 'left',
+                reposition: false,
                 //autoHide: 'true',
                 className:'context-custom',
                 items: {
@@ -144,15 +153,23 @@ define(['backbone', 'underscore', 'jquery', 'd3', 'contextMenu'],
                     'expand': {
                         name: 'Expand',
                         icon: 'fa-expand',
+                        disabled: _.bind(isNotParent, this),
                         callback: _.bind(expand, this)
                     },
                     'collapse': {
                         name: 'Collapse',
                         icon: 'fa-compress',
+                        disabled: _.bind(isNotExpanded, this),
                         callback: _.bind(collapse, this)
                     }
                 }
             });
+
+            $.contextMenu.handle.layerClick = function() {
+                var $this = $(this),
+                root = $this.data('contextMenuRoot');
+                root.$menu.trigger('contextmenu:hide');
+            };
 
             this.firstMd = true;
 
@@ -167,8 +184,6 @@ define(['backbone', 'underscore', 'jquery', 'd3', 'contextMenu'],
                 }
             };
 
-
-
             var dragged = function(d) {
                 d.fx = d3.event.x;
                 d.fy = d3.event.y;
@@ -180,9 +195,10 @@ define(['backbone', 'underscore', 'jquery', 'd3', 'contextMenu'],
                 d3.event.sourceEvent.stopPropagation(); 
                 // This was to trigger show info when dragged a bit
                 if (Math.abs(this.ix - d.fx) < 5 && Math.abs(this.iy - d.fy) < 5) {
+                    console.log('in click 2');
+                    this.selectedNode = d;
                     //fix for d3 chrome dragging issue, which is ok but not always ideal.
                     $(':hover').last().click();
-                    this.selectedNode = d;
                     this.dispatch.trigger('toggleInfo');
                 }
                 this.firstMd = true;
@@ -206,6 +222,7 @@ define(['backbone', 'underscore', 'jquery', 'd3', 'contextMenu'],
                 .attr('transform', 'translate(' + this.width / 2 + ', ' + this.height * 0.4 + ')')
                 .call(this.drag)
                 .on('click', function(d) {
+                    console.log('in click');
                     self.selectedNode = d;
                 })
                 .on('contextmenu', _.bind(excol, this));
@@ -213,7 +230,7 @@ define(['backbone', 'underscore', 'jquery', 'd3', 'contextMenu'],
             this.svg.on('click', _.bind(clickCanvas, this));
 
             var circles = this.d3node.append('circle')
-                .attr('r', 45)
+                .attr('r', this.nodeRadius)
                 .attr('fill', 'white');
 
 
@@ -222,8 +239,8 @@ define(['backbone', 'underscore', 'jquery', 'd3', 'contextMenu'],
                     return d.picture;
                 })
                 .attr("class", "img-circle")
-                .attr("height", 90)
-                .attr("width", 90);
+                .attr("height", this.nodeRadius*2)
+                .attr("width", this.nodeRadius*2);
 
             var node_labels = this.d3node.append("text")
                 .attr("class", "node-label")
@@ -249,6 +266,7 @@ define(['backbone', 'underscore', 'jquery', 'd3', 'contextMenu'],
         },
 
         ticked: function() {
+            var self = this;
             this.d3edge.selectAll('line')
                 .attr("x1", function(d) {
                     return d.source.x;
@@ -273,10 +291,10 @@ define(['backbone', 'underscore', 'jquery', 'd3', 'contextMenu'],
 
             this.d3node.selectAll('image')
                 .attr("x", function(d) {
-                    return d.x - 45;
+                    return d.x - self.nodeRadius;
                 })
                 .attr("y", function(d) {
-                    return d.y - 45;
+                    return d.y - self.nodeRadius;
                 });
 
             this.d3node.selectAll('text')
@@ -284,7 +302,7 @@ define(['backbone', 'underscore', 'jquery', 'd3', 'contextMenu'],
                     return d.x;
                 })
                 .attr("y", function(d) {
-                    return d.y + 60;
+                    return d.y + self.nodeRadius + 15;
                 });
         },
 

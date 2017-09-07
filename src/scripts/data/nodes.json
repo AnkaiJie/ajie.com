@@ -7,7 +7,7 @@
         "info": {
             "title": "Ankai Jie",
             "dpic": "scripts/img/ankai.png",
-            "desc": "Hi! My name is Ankai Jie. I am a second year student at the University of Waterloo studying computer science and statistics. This website, written from scratch with D3.js and Backbone.js, is meant to portray me in a graph format. Feel free to explore my profile! Click to see details and right click to expand."
+            "desc": "Hi! My name is Ankai Jie. I am a second year student at the University of Waterloo studying computer science and statistics. This website, written with D3.js and Backbone.js, is meant to portray me in a graph format. Feel free to explore my profile! Click to see details and right click to expand."
         }
     }, {
         "id": 1,
@@ -22,20 +22,20 @@
         }
     }, {
         "id": 2,
-        "name": "GSC Fraud Detector",
+        "name": "Fraudalyzer",
         "root": 0,
         "picture": "scripts/img/gsc-icon.png",
         "info": {
             "title": "Academic Fraud Detector",
             "dpic": "scripts/img/gsc.jpg",
-            "desc": "In academia, papers gain fame and credibility by the number of times they are cited by other papers. As with any other industry, there are people who try to cheat the system by colluding to inflate their citation count.  Academic Fraud Detector is a research project I am working on with an associate dean at the University of Waterloo that applies experimental data/graph processing algorithms on citation data between academic publishers retrieved from Scopus. These algorithms are being optimized to highlight fraudulent relationships and expose citation rings.",
+            "desc": "In academia, papers gain fame and credibility by the number of times they are cited by other papers. As with any other industry, there are people who try to cheat the system by colluding to inflate their citation count.  Fraudalyzer is a research project I worked on with the associate dean of graduate studies at the University of Waterloo that applies experimental data/graph processing algorithms on citation data between academic publishers, retrieved from Scopus. These algorithms are optimized to highlight fraudulent relationships and expose citation rings.",
             "tags": {
                 "Awards": ["Research Project"],
                 "Algorithms": ["Graph Processing", "ETL Pipelines"],
                 "Technologies Used": ["Python", "SQL"]
             },
             "links": {
-                "github": "https://github.com/AnkaiJie/Google-Scholar-Citation-Fraud-Data-Collector"
+                "github": "https://github.com/AnkaiJie/AfdWeb"
             }
         }
 
@@ -113,9 +113,9 @@
         "info": {
             "title": "Data Science Engineer",
             "dpic": "scripts/img/scotia.png",
-            "desc": "I worked on the Network Analytics team at Scotiabank. On this team I did a lot of analytical and data processing work in analyzing the bank's transactional data in a network (graph) view. I worked on a large variety of projects, including creating a framework for processing temporal networks, implementing graph processing algorithms, and improving web functionality of our network visualizer.",
+            "desc": "I worked on the Network Analytics team at Scotiabank. On this team I did a lot of analytical and data processing work in analyzing the bank's transactional data in a network (graph) view. I created a framework for processing temporal networks, implemented graph processing algorithms, and improved web functionality of our network visualizer.",
             "tags": {
-                "Technologies Used": ["Hadoop", "Javascript", "Java", "SQL", "Python"]
+                "Technologies Used": ["Hadoop", "NodeJS", "Java", "SQL", "Python"]
             }
         }
     }, {
@@ -126,7 +126,7 @@
         "info": {
             "title": "Web Developer",
             "dpic": "scripts/img/di-icon.png",
-            "desc": "I worked on the creation of a new internal management web application for the company. I created a front end with AngularJS that permitted convenient and visually appealing access to the MySQL database. I built the Java pipeline from front to back end and implemented thorough functionality testing.",
+            "desc": "I worked on the creation of a new internal management web application for the company. I created a front end with AngularJS that permitted convenient and visually appealing access to the MySQL database. I built the Java pipeline from front to back end and conducted thorough testing.",
             "tags": {
                 "Technologies Used": ["AngularJS", "Java", "JQuery", "RESTful Services", "Spring MVC"]
             }
@@ -142,6 +142,19 @@
             "desc": "I am pursuing a Bachelor of Computer Science at the University of Waterloo. I am planning to pursue the anticipated Data Science major and the business electives option for computer science students.",
             "tags": {
                 "Awards": ["Deans Honor List", "Marsh Memorial Scholarship", "President's Scholarship"]    
+            }
+        }
+    }, {
+        "id": 10,
+        "name": "The Meet Group",
+        "root": 0,
+        "picture": "scripts/img/tmg-logo.png",
+        "info": {
+            "title": "Software Engineer",
+            "dpic": "scripts/img/tmg-logo-big.png",
+            "desc": "I worked on the Big Data team for The Meet Group. I worked on a scaleable and dynamic AWS automation system in Python, creating Hive UDF/UDAFs and ETLs for data analysis, and data visualization on the web.",
+            "tags": {
+                "Technologies Used": ["Hadoop", "AWS", "Java", "Python", "SQL"]    
             }
         }
     }

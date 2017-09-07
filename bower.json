@@ -2,6 +2,7 @@
   "name": "ankai-jie-personal-website",
   "version": "1.0.0",
   "dependencies": {
+    "jQuery-contextMenu": "2.5.0",
     "jquery": "^3.1.0",
     "backbone": "^1.3.3",
     "lodash": "^4.15.0",

@@ -19,6 +19,8 @@ define(['backbone', 'underscore', 'jquery', 'd3', 'contextMenu'],
                 this.isMobile = true;
             }
 
+            this.isSafari = !!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/);
+
         },
 
         id: 'canvas',
@@ -200,7 +202,7 @@ define(['backbone', 'underscore', 'jquery', 'd3', 'contextMenu'],
                 if (!d3.event.active) this.simulation.alphaTarget(0);
                 d3.event.sourceEvent.stopPropagation(); 
                 // This was to trigger show info when dragged a bit
-                if (Math.abs(this.ix - d.fx) < 5 && Math.abs(this.iy - d.fy) < 5 && !this.isMobile) {
+                if (Math.abs(this.ix - d.fx) < 5 && Math.abs(this.iy - d.fy) < 5 && !this.isMobile && !this.isSafari) {
                     this.selectedNode = d;
                     //fix for d3 chrome dragging issue, which is ok but not always ideal.
                     $(':hover').last().click();

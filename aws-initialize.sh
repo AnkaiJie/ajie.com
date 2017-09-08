@@ -3,10 +3,10 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | b
 nvm install 8.4.0
 sudo yum -y install git
 git clone https://github.com/AnkaiJie/ajie.com.git
-ls ~/ajie.com
+cd ~/ajie.com
 npm install -g grunt
 npm install -g grunt-cli
 npm install -g bower
 npm install
 bower install
-nohup node src/server.js > /dev/null &
+sudo nohup /home/ec2-user/.nvm/versions/node/v8.4.0/bin/node src/server.js > /dev/null &

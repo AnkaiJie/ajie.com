@@ -9,3 +9,4 @@ npm install -g grunt-cli
 npm install -g bower
 npm install
 bower install
+nohup node src/server.js > /dev/null &

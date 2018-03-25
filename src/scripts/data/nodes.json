@@ -1,4 +1,5 @@
-[{
+[
+    {
         "id": 0,
         "name": "Ankai",
         "root": 1,
@@ -150,11 +151,24 @@
         "root": 0,
         "picture": "scripts/img/tmg-logo.png",
         "info": {
-            "title": "Software Engineer",
+            "title": "Data Engineer",
             "dpic": "scripts/img/tmg-logo-big.png",
-            "desc": "I worked on the Big Data team for The Meet Group. I worked on a scaleable and dynamic AWS automation system in Python, creating Hive UDF/UDAFs and ETLs for data analysis, and data visualization on the web.",
+            "desc": "I worked on the Big Data team for The Meet Group. I worked on a dynamic AWS automation system in Python, creating Hive UDF/UDAFs and ETLs for data analysis, and data visualization on the web.",
             "tags": {
                 "Technologies Used": ["Hadoop", "AWS", "Java", "Python", "SQL"]    
+            }
+        }
+    }, {
+        "id": 11,
+        "name": "Coursera",
+        "root": 0,
+        "picture": "scripts/img/coursera-logo.png",
+        "info": {
+            "title": "Software Engineer",
+            "dpic": "scripts/img/coursera-logo-big.png",
+            "desc": "I worked as a backend developer on the learner experience team at Coursera. I worked on developing a scaleable system that enabled learners to work on assessments as teams.",
+            "tags": {
+                "Technologies Used": ["Scala", "AWS", "SQL", "Cassandra"]    
             }
         }
     }

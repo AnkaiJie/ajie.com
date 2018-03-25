@@ -17,7 +17,7 @@ svg .nodes {
 svg .node-label {
   color: #ffffff;
   font-family: 'Raleway', sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
   stroke-width: 0px; }
@@ -61,7 +61,7 @@ svg .node-label {
       background-color: white; }
     .info-section .datastuff h1 {
       color: #EBEBEB;
-      font-family: "Verdana";
+      font-family: Verdana, Geneva, sans-serif;
       font-size: 48px;
       font-size: 2.2vw;
       letter-spacing: -2px;

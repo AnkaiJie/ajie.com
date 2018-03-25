@@ -108,7 +108,7 @@
         }
     }, {
         "id": 7,
-        "name": "Scotiabank",
+        "name": "Scotiabank, 2016",
         "root": 0,
         "picture": "scripts/img/sb-icon.png",
         "info": {
@@ -121,7 +121,7 @@
         }
     }, {
         "id": 8,
-        "name": "Dawn Infotek",
+        "name": "Dawn Infotek, 2015",
         "root": 0,
         "picture": "scripts/img/di-icon.png",
         "info": {
@@ -147,7 +147,7 @@
         }
     }, {
         "id": 10,
-        "name": "The Meet Group",
+        "name": "The Meet Group, 2017",
         "root": 0,
         "picture": "scripts/img/tmg-logo.png",
         "info": {
@@ -160,7 +160,7 @@
         }
     }, {
         "id": 11,
-        "name": "Coursera",
+        "name": "Coursera, 2018",
         "root": 0,
         "picture": "scripts/img/coursera-logo.png",
         "info": {

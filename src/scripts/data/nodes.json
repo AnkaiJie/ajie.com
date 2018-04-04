@@ -8,7 +8,10 @@
         "info": {
             "title": "Ankai Jie",
             "dpic": "scripts/img/ankai.png",
-            "desc": "Hi! My name is Ankai Jie. I am a second year student at the University of Waterloo studying computer science and statistics. This website, written with D3.js and Backbone.js, is meant to portray me in a graph format. Feel free to explore my profile! Click to see details and right click to expand."
+            "desc": "Hi! My name is Ankai Jie. I am a fourth year student at the University of Waterloo studying computer science and statistics. This website, written with D3.js and Backbone.js, is meant to portray me in a graph format. Feel free to explore my profile! Click to see details and right click to expand.",
+            "links": {
+                "resume": "scripts/data/resume.pdf"
+            }
         }
     }, {
         "id": 1,
@@ -23,13 +26,13 @@
         }
     }, {
         "id": 2,
-        "name": "Fraudalyzer",
+        "name": "Citation Analyzer",
         "root": 0,
         "picture": "scripts/img/gsc-icon.png",
         "info": {
-            "title": "Academic Fraud Detector",
+            "title": "Citation Analyzer",
             "dpic": "scripts/img/gsc.jpg",
-            "desc": "In academia, papers gain fame and credibility by the number of times they are cited by other papers. As with any other industry, there are people who try to cheat the system by colluding to inflate their citation count.  Fraudalyzer is a research project I worked on with the associate dean of graduate studies at the University of Waterloo that applies experimental data/graph processing algorithms on citation data between academic publishers, retrieved from Scopus. These algorithms are optimized to highlight fraudulent relationships and expose citation rings.",
+            "desc": "Citation Analyzer is project I developed for bibliometric analysis. It uses custom graph algorithms to identify influencial authors through citation relationships. It is also a powerful tool used to identify academic fraud. I am currently using it to write a research paper on new classification metrics for authors in academia.",
             "tags": {
                 "Awards": ["Research Project"],
                 "Algorithms": ["Graph Processing", "ETL Pipelines"],
@@ -166,7 +169,7 @@
         "info": {
             "title": "Software Engineer",
             "dpic": "scripts/img/coursera-logo-big.png",
-            "desc": "I worked as a backend developer on the learner experience team at Coursera. I worked on developing a scaleable system that enabled learners to work on assessments as teams.",
+            "desc": "I am working as a backend developer on the learner experience team at Coursera. I am developing a tool to automatically regrade learners on release of new assessments versions. I also worked on creating a scaleable system that enabled learners to work on assessments as teams.",
             "tags": {
                 "Technologies Used": ["Scala", "AWS", "SQL", "Cassandra"]    
             }

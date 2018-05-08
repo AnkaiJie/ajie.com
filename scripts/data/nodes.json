@@ -26,7 +26,7 @@
         }
     }, {
         "id": 2,
-        "name": "Citation Analyzer",
+        "name": "Citation Analyzer, 2017",
         "root": 0,
         "picture": "scripts/img/gsc-icon.png",
         "info": {
@@ -45,7 +45,7 @@
 
     }, {
         "id": 3,
-        "name": "Hey Kanye!",
+        "name": "Hey Kanye!, 2016",
         "root": 0,
         "picture": "scripts/img/rap-icon.png",
         "info": {
@@ -63,7 +63,7 @@
         }
     }, {
         "id": 4,
-        "name": "Movie Queue",
+        "name": "Movie Queue, 2016",
         "root": 0,
         "picture": "scripts/img/mq-icon.png",
         "info": {
@@ -80,7 +80,7 @@
         }
     }, {
         "id": 5,
-        "name": "Track Master",
+        "name": "Track Master, 2015",
         "root": 0,
         "picture": "scripts/img/tm-icon.png",
         "info": {
@@ -169,11 +169,28 @@
         "info": {
             "title": "Software Engineer",
             "dpic": "scripts/img/coursera-logo-big.png",
-            "desc": "I am working as a backend developer on the learner experience team at Coursera. I am developing a tool to automatically regrade learners on release of new assessments versions. I also worked on creating a scaleable system that enabled learners to work on assessments as teams.",
+            "desc": "I worked as a backend developer on the assessments team at Coursera. I developed a tool to automatically regrade learners on release of new assessments versions. I also worked on creating a scaleable system that enabled learners to work on assessments as teams.",
             "tags": {
                 "Technologies Used": ["Scala", "AWS", "SQL", "Cassandra"]    
             }
         }
+    }, {
+        "id": 12,
+        "name": "Job Analysis, 2018",
+        "root": 0,
+        "picture": "scripts/img/jobs.png",
+        "info": {
+            "title": "Job Analysis",
+            "dpic": "scripts/img/jobs.png",
+            "desc": "I worked with a partner to create a statistical analysis on disparity in the job market in America. We used the provided Indeed.com dataset at Waterloo's 2018 Datafest and won the best visualization award.",
+            "tags": {
+                "Awards": ["Best Visualization Award"],
+                "Algorithms": ["Generalized Linear Models", "Polynomial Regression"],
+                "Technologies Used": ["Python", "R", "Tableau"]
+            },
+            "links": {
+                "github": "https://public.tableau.com/profile/ankai.jie#!/vizhome/DatafestMainDash/Dashboard1"
+            }
+        }
     }
-
 ]

@@ -10,5 +10,6 @@
     { "id": 8, "source": 0, "sourceName": "Ankai", "target": 9, "targetName": "Education" },
     { "id": 9, "source": 6, "sourceName": "Work Experience", "target": 10, "targetName": "The Meet Group" },
     { "id": 10, "source": 6, "sourceName": "Work Experience", "target": 11, "targetName": "Coursera" },
-    { "id": 11, "source": 1, "sourceName": "Projects", "target": 12, "targetName": "Job Market Analysis, 2018" }
+    { "id": 11, "source": 1, "sourceName": "Projects", "target": 12, "targetName": "Job Market Analysis, 2018" },
+    { "id": 12, "source": 1, "sourceName": "Projects", "target": 13, "targetName": "Citadel Datathon, 2018" }
 ]

@@ -8,7 +8,7 @@
         "info": {
             "title": "Ankai Jie",
             "dpic": "scripts/img/ankai.png",
-            "desc": "Hi! My name is Ankai Jie. I am a fourth year student at the University of Waterloo studying computer science and statistics. This website, written with D3.js and Backbone.js, is meant to portray me in a graph format. Feel free to explore my profile! Click to see details and right click to expand.",
+            "desc": "Hi! My name is Ankai Jie. I am a fourth year student at the University of Waterloo studying computer science and statistics. This website, written with D3.js and Backbone.js, is meant to portray me in a graph format. Feel free to explore my profile! Click to see details/expand. See below for my resume.",
             "links": {
                 "resume": "scripts/data/resume.pdf"
             }
@@ -190,6 +190,24 @@
             },
             "links": {
                 "github": "https://public.tableau.com/profile/ankai.jie#!/vizhome/DatafestMainDash/Dashboard1"
+            }
+        }
+    }, {
+        "id": 13,
+        "name": "Citadel Datathon, 2018",
+        "root": 0,
+        "picture": "scripts/img/datathon-logo.png",
+        "info": {
+            "title": "Job Analysis",
+            "dpic": "scripts/img/datathon.png",
+            "desc": "I worked with a team to compete at Citadel's Datathon in Waterloo. We used geographic data and time series analysis to create models and provide insights on 311 request data in New York city. Our report won and we qualified to compete at the international Data Open. Click on the link to read our report.",
+            "tags": {
+                "Awards": ["1st Place Winner"],
+                "Algorithms": ["Machine Learning", "Time Series Analysis"],
+                "Technologies Used": ["Python"]
+            },
+            "links": {
+                "resume": "scripts/data/datathon.pdf"
             }
         }
     }
